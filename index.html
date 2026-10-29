@@ -381,8 +381,8 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
       <p class="tag en">Making mental health a <em>movement</em> in style.</p>
       <p class="lede zh"><span class="k">用科學和藝術認識心理健康。</span><span class="k">走進來，就像逛一座遊樂園。</span></p>
       <p class="lede en">Science and art, side by side, to show you mental health in a new light. Walk in the way you'd walk into a theme park.</p>
-      <p class="proof zh"><span class="k">前 Notion、Cursor 設計師、</span><span class="k">參與 OpenAI 計畫的精神科醫師、</span><span class="k">25 萬人追蹤的創作者，</span><span class="k">同一天都在這裡。</span></p>
-      <p class="proof en">A designer from Notion and Cursor, a psychiatrist who has worked with OpenAI, and a creator followed by 250,000 people. Same day, same place.</p>
+      <p class="proof zh"><span class="k">Cursor 設計負責人、</span><span class="k">參與 OpenAI 計畫的精神科醫師、</span><span class="k">25 萬人追蹤的創作者，</span><span class="k">同一天都在這裡。</span></p>
+      <p class="proof en">Cursor’s head of design, a psychiatrist who has worked with OpenAI, and a creator followed by 250,000 people. Same day, same place.</p>
       <dl class="facts">
         <dt><span class="zh">時間</span><span class="en">When</span></dt><dd><span class="zh">2026.11.21（六）14:30–19:30</span><span class="en">Sat 21 Nov 2026, 14:30–19:30</span></dd>
         <dt><span class="zh">地點</span><span class="en">Where</span></dt><dd><span class="zh">義居雅舍 · 捷運西湖站</span><span class="en">italife, near MRT Xihu</span></dd>
@@ -584,9 +584,9 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
       ty:['聊心茶室創辦人','Founder of HealYou'],r:'聊心茶室 HealYou 創辦人暨執行長',re:'Founder & CEO of HealYou',
       sp:'近十年產品經驗，從自己的諮商經歷出發，用科技降低求助的門檻。',spe:'Nearly ten years in product. Her own experience of therapy led her to build technology that makes it easier to ask for help.'},
     {f:'ryo',n:'Ryo Lu',z:'魯赫',t:'talk',big:1,img:'ryo-wide',pos:'50% 40%',ds:'#B5134F',dh:'#BFEE8E',ch:'purple',s:'zh',
-      ty:['產品設計師','Product designer'],r:'前 Stripe、Notion、Cursor',re:'Formerly at Stripe, Notion and Cursor',
-      sp:'做過 Stripe、Notion、Cursor 的設計師，2026 年搬到台北，刻意放慢。',spe:'A designer at Stripe, Notion and Cursor who moved to Taipei in 2026 to slow down on purpose.'},
-    {f:'jolie',n:'Jolie Chi',z:'九粒',t:'talk',big:1,pos:'50% 10%',ds:'#0F4D2C',dh:'#FF8FBF',ch:'star',s:'en',
+      ty:['Cursor 設計負責人','Head of Design, Cursor'],r:'Cursor 設計負責人 · Notion 創始設計師 · Stripe',re:'Head of Design, Cursor · Founding designer, Notion · Stripe',
+      sp:'<span class="k">Cursor 設計負責人、</span><span class="k">Notion 創始設計師，</span><span class="k">也做過 Stripe。</span><span class="k">2026 年搬到台北，</span><span class="k">刻意放慢。</span>',spe:'Head of Design at Cursor, founding designer at Notion, and a designer at Stripe. Moved to Taipei in 2026 to slow down on purpose.'},
+    {f:'jolie',n:'Jolie Chi',z:'九粒',t:'talk',big:1,pos:'50% 10%',ds:'#0F4D2C',dh:'#FF8FBF',ch:'star',s:'en',host:1,
       ty:['創作者','Creator'],r:'講者 · SuperMero 創辦人',re:'Speaker · Founder of SuperMero',
       sp:'25 萬人追蹤的創作者，公開說自己的憂鬱低潮，用故事陪大家走過轉變。',spe:'With 250,000 followers, she speaks openly about her depression and uses stories to help others through change.'},
     {f:'drlin',n:'Dr. Yu-Shiou Lin',z:'林鈺修',t:'talk',big:1,pos:'50% 8%',ds:'#141414',dh:'#FF5A1F',ch:'cloud',s:'en',
@@ -632,7 +632,7 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ticker
-  const WHO=[['工程師','Engineers'],['精神科醫師','Psychiatrist'],['身體覺察教練','Embodiment coach'],['創業家','Founders'],['產品設計師','Product designer'],['25 萬追蹤創作者','Creator with 250K followers'],['跨國人資','Global HR'],['藝術治療師','Art therapists'],['自閉症藝術家','Autistic artists'],['電音療癒師','Sound healers'],['紅酒瑜珈老師','Wine yoga teacher'],['睡眠美學療癒師','Sleep & space healer'],['藝術心理治療師','Art psychotherapist'],['旅台法國創作者','French creator in Taiwan'],['DJ','DJ']];
+  const WHO=[['工程師','Engineers'],['精神科醫師','Psychiatrist'],['身體覺察教練','Embodiment coach'],['創業家','Founders'],['Cursor 設計負責人','Cursor’s head of design'],['25 萬追蹤創作者','Creator with 250K followers'],['跨國人資','Global HR'],['藝術治療師','Art therapists'],['自閉症藝術家','Autistic artists'],['電音療癒師','Sound healers'],['紅酒瑜珈老師','Wine yoga teacher'],['睡眠美學療癒師','Sleep & space healer'],['藝術心理治療師','Art psychotherapist'],['旅台法國創作者','French creator in Taiwan'],['DJ','DJ']];
   const tk=WHO.map(w=>`<span>${bi(w[0],w[1])}</span>`).join('');
   document.getElementById('ticker').innerHTML=tk+tk;
 
