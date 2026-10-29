@@ -3,9 +3,9 @@
 <meta charset="utf-8">
 <title>Mental Health Festival 2026｜精神維他命</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="2026.11.21（六）14:30–19:30｜兩場國際對談 · 四個工作坊 · 紅酒瑜珈 · 藝術治療 · Live Music · 藝術家聯展">
+<meta name="description" content="2026.11.21（六）14:30–19:30｜兩場國際對談 · 五個工作坊 · 紅酒瑜珈 · 藝術治療 · Live Music · 藝術家聯展">
 <meta property="og:title" content="Mental Health Festival 2026｜精神維他命">
-<meta property="og:description" content="2026.11.21（六）14:30–19:30｜兩場國際對談 · 四個工作坊 · 紅酒瑜珈 · 藝術治療 · Live Music · 藝術家聯展">
+<meta property="og:description" content="2026.11.21（六）14:30–19:30｜兩場國際對談 · 五個工作坊 · 紅酒瑜珈 · 藝術治療 · Live Music · 藝術家聯展">
 <meta property="og:image" content="https://chang7856.github.io/mhf-2026/meta/og.png">
 <meta property="og:url" content="https://chang7856.github.io/mhf-2026/">
 <link rel="canonical" href="https://chang7856.github.io/mhf-2026/">
@@ -589,7 +589,7 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
     {f:'jolie',n:'Jolie Chi',z:'九粒',t:'talk',big:1,pos:'50% 10%',ds:'#0F4D2C',dh:'#FF8FBF',ch:'star',s:'en',
       ty:['創作者','Creator'],r:'講者 · SuperMero 創辦人',re:'Speaker · Founder of SuperMero',
       sp:'25 萬人追蹤的創作者，公開說自己的憂鬱低潮，用故事陪大家走過轉變。',spe:'With 250,000 followers, she speaks openly about her depression and uses stories to help others through change.'},
-    {f:'drlin',n:'Dr. Yu-Shiou Lin',z:'',t:'talk',big:1,pos:'50% 8%',ds:'#141414',dh:'#FF5A1F',ch:'cloud',s:'en',
+    {f:'drlin',n:'Dr. Yu-Shiou Lin',z:'林鈺修',t:'talk',big:1,pos:'50% 8%',ds:'#141414',dh:'#FF5A1F',ch:'cloud',s:'en',
       ty:['精神科醫師','Psychiatrist'],r:'精神科專科醫師 · AI 與心理健康',re:'Board-certified psychiatrist · AI and mental health',
       sp:'參與過 OpenAI 心理健康評估計畫的精神科醫師，橫跨臨床、研究與 AI。',spe:'A psychiatrist who has contributed to OpenAI’s mental health evaluations, working across clinical care, research and AI.'},
     {f:'lydia',n:'Lydia Huang',z:'',t:'talk',pos:'50% 12%',ds:'#0F4D2C',dh:'#FF8FBF',ch:'square',s:'zh',
@@ -612,7 +612,10 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
       sp:'帶你做一場 Body Pages：先掃描身體，再把感受畫下來，最後一起分享。',spe:'Her Body Pages session: scan your body, draw what you find, then share it with the room.'},
     {f:'helen',n:'Helen Chuang',z:'莊雯惠',t:'work',pos:'50% 30%',ds:'#2A1B6B',dh:'#FF8FBF',ch:'square',s:'art',
       ty:['藝術治療師','Art therapist'],r:'英國 HCPC 註冊藝術心理治療師',re:'HCPC-registered art psychotherapist (UK)',
-      sp:'英國註冊藝術心理治療師。先聽她說什麼是藝術治療，再動手做一場，親身體驗。',spe:'A UK-registered art psychotherapist. First she explains what art therapy is, then you make something and feel it for yourself.'}
+      sp:'英國註冊藝術心理治療師。先聽她說什麼是藝術治療，再動手做一場，親身體驗。',spe:'A UK-registered art psychotherapist. First she explains what art therapy is, then you make something and feel it for yourself.'},
+    {f:'becky',n:'Becky',z:'貝姬',t:'work',pos:'50% 22%',ds:'#2A1B6B',dh:'#BFEE8E',ch:'cloud',s:'sleep',
+      ty:['睡眠美學療癒師','Sleep & space healer'],r:'睡眠美學與空間療癒師',re:'Sleep aesthetics & space healer',
+      sp:'<span class="k">用織品觸感、光線</span><span class="k">和睡前儀式，</span><span class="k">陪你把臥室變回</span><span class="k">能好好休息的地方。</span>',spe:'Fabric, light and a bedtime ritual: small changes that turn the bedroom back into a place to rest.'}
   ];
   const SESS={
     zh:['中文對談 · 2F · 15:00','Mandarin panel · 2F · 15:00'],
@@ -620,7 +623,8 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
     sound:['電音療癒 · Room A · 15:00 / 17:00','Sound healing · Room A · 15:00 / 17:00'],
     yoga:['紅酒瑜珈 · Room B · 17:00','Wine yoga · Room B · 17:00'],
     body:['身體療癒 · Room D · 16:30 起','Somatic session · Room D · from 16:30'],
-    art:['藝術治療 · Room C · 16:30 起','Art therapy · Room C · from 16:30']
+    art:['藝術治療 · Room C · 16:30 起','Art therapy · Room C · from 16:30'],
+    sleep:['睡眠工作坊','Sleep workshop']
   };
   const bi=(z,e)=>`<span class="zh">${z}</span><span class="en">${e}</span>`;
   const img=p=>`photos/${p.img||p.f}.jpg`;
@@ -628,7 +632,7 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ticker
-  const WHO=[['工程師','Engineers'],['精神科醫師','Psychiatrist'],['身體覺察教練','Embodiment coach'],['創業家','Founders'],['產品設計師','Product designer'],['25 萬追蹤創作者','Creator with 250K followers'],['跨國人資','Global HR'],['藝術治療師','Art therapists'],['自閉症藝術家','Autistic artists'],['電音療癒師','Sound healers'],['紅酒瑜珈老師','Wine yoga teacher'],['藝術心理治療師','Art psychotherapist'],['旅台法國創作者','French creator in Taiwan'],['DJ','DJ']];
+  const WHO=[['工程師','Engineers'],['精神科醫師','Psychiatrist'],['身體覺察教練','Embodiment coach'],['創業家','Founders'],['產品設計師','Product designer'],['25 萬追蹤創作者','Creator with 250K followers'],['跨國人資','Global HR'],['藝術治療師','Art therapists'],['自閉症藝術家','Autistic artists'],['電音療癒師','Sound healers'],['紅酒瑜珈老師','Wine yoga teacher'],['睡眠美學療癒師','Sleep & space healer'],['藝術心理治療師','Art psychotherapist'],['旅台法國創作者','French creator in Taiwan'],['DJ','DJ']];
   const tk=WHO.map(w=>`<span>${bi(w[0],w[1])}</span>`).join('');
   document.getElementById('ticker').innerHTML=tk+tk;
 
