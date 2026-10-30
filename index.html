@@ -89,8 +89,13 @@ button{font:inherit;color:inherit}
 .hero h1 .yr{font-size:.34em;margin-left:.14em;color:var(--ink);letter-spacing:.02em}
 .hero-side{display:flex;flex-direction:column;gap:1.3rem}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
-.tag{font-weight:900;font-size:clamp(1.7rem,3.2vw,2.5rem);line-height:1.45;letter-spacing:.02em}
-.tag.en{font-family:var(--f-giant);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.08;font-size:clamp(2rem,4vw,3.2rem)}
+.bigdate{display:flex;align-items:flex-end;gap:.9rem;line-height:.8}
+.bigdate .d{font-family:var(--f-giant);font-size:clamp(5.5rem,13vw,10rem);letter-spacing:-.01em;color:var(--paper)}
+.bigdate .w{font-weight:900;font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.35;padding-bottom:.35em}
+.invite{font-weight:900;font-size:clamp(1.7rem,3.2vw,2.5rem);line-height:1.4;letter-spacing:.02em}
+.invite.en{font-family:var(--f-giant);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;font-size:clamp(2rem,4vw,3.2rem)}
+.tag{font-weight:700;font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.6;letter-spacing:.04em}
+.tag.en{font-weight:700;letter-spacing:.01em}
 .tag em{font-style:normal;color:var(--paper)}
 .lede{font-size:1.1rem;line-height:1.95;color:var(--ink)}
 .proof{font-weight:700;font-size:1.05rem;line-height:1.85;border-left:4px solid var(--paper);padding-left:.9rem}
@@ -125,6 +130,15 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
 .rv{transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.pre{transform:translateY(28px)}
 
+/* route: the day in five steps */
+.route{list-style:none;margin:0 0 clamp(1.2rem,2.4vw,1.8rem);padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;background:var(--ink);border:2px solid var(--ink)}
+.route li{background:var(--paper);padding:1rem 1.1rem 1.1rem;display:flex;flex-direction:column;gap:.35rem;font-weight:700;font-size:1.02rem;line-height:1.45}
+.route li b{font-family:var(--f-giant);font-weight:400;font-size:clamp(1.8rem,2.6vw,2.4rem);line-height:1;letter-spacing:.01em}
+.route li.hi{background:var(--orange)}
+.route li.night{background:var(--purple);color:var(--paper)}
+@media (max-width:900px){.route{grid-template-columns:1fr}.route li{flex-direction:row;align-items:baseline;gap:1rem;padding:.8rem 1rem}.route li b{flex:none;width:4.2rem;font-size:1.7rem}}
+.same{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1rem;font-weight:900;font-size:clamp(1.1rem,1.8vw,1.3rem);margin-bottom:clamp(.8rem,1.6vw,1.1rem)}
+.same b{font-family:var(--f-giant);font-weight:400;font-size:clamp(1.6rem,2.4vw,2rem);line-height:1;background:var(--ink);color:var(--paper);padding:.2rem .6rem}
 /* panels */
 .intro{font-weight:700;font-size:clamp(1.1rem,1.8vw,1.3rem);line-height:1.8;max-width:40em;margin-bottom:clamp(1rem,2vw,1.4rem)}
 .panels{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,2vw,1.6rem)}
@@ -168,7 +182,7 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
 .wall{display:flex;flex-direction:column;gap:clamp(1.6rem,3vw,2.4rem)}
 .grp h3{font-weight:900;font-size:1.2rem;letter-spacing:.1em;color:var(--orange);margin-bottom:.7rem}
 .grp h3.en{font-family:var(--f-giant);font-weight:400;text-transform:uppercase;letter-spacing:.06em;font-size:1.45rem}
-.names{display:flex;flex-wrap:wrap;align-items:center;column-gap:clamp(.8rem,1.8vw,1.6rem);row-gap:.9rem}
+.names{display:flex;flex-wrap:wrap;align-items:flex-start;column-gap:clamp(1.6rem,3.4vw,3rem);row-gap:1.2rem}
 .nm{border:0;background:none;padding:0;cursor:pointer;color:var(--paper);display:inline-flex;flex-direction:column;align-items:flex-start;gap:.35rem;text-align:left}
 .nm .n{font-family:var(--f-giant);text-transform:uppercase;line-height:.92;letter-spacing:-.005em;white-space:nowrap;transition:color .15s}
 .nm .n.zh{font-family:var(--f-tc);font-weight:900;letter-spacing:.02em}
@@ -220,9 +234,10 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
 .card .bd{padding:4cqw 5cqw 5cqw;display:flex;flex-direction:column;gap:1.6cqw;flex:1;min-height:0}
 .card .cn{font-family:var(--f-giant);text-transform:uppercase;font-size:13cqw;line-height:.92;letter-spacing:-.005em;background:linear-gradient(100deg,var(--ink) 0 36%,#7D5CFF 44%,#FF5A1F 50%,#C6F06B 56%,var(--ink) 64% 100%);background-size:320% 100%;background-position:var(--fx) 0;-webkit-background-clip:text;background-clip:text;color:transparent}
 .card .cz{font-weight:900;font-size:5.4cqw;letter-spacing:.2em;line-height:1.3}
-.card .chips{margin-top:auto;display:flex;flex-wrap:wrap;gap:2cqw}
-.card .chips>span{border-radius:999px;padding:.9cqw 3.2cqw;font-weight:700;font-size:4.3cqw;line-height:1.35;border:1.5px solid var(--ink)}
-.card .chips>span:first-child{background:var(--orange);border-color:var(--orange)}
+.card .chips{margin-top:auto;display:flex;flex-direction:column;align-items:flex-start;gap:1.6cqw}
+.card .chips>span{font-weight:700;font-size:4.3cqw;line-height:1.35}
+.card .chips>span:first-child{border-radius:999px;padding:.9cqw 3.2cqw;background:var(--orange)}
+.card .chips>span+span{font-weight:900}
 .card .stk{position:absolute;right:3%;top:36%;width:30%;transform:rotate(10deg);pointer-events:none;z-index:3}
 /* holo foil: prism stripes + a travelling glare + glitter, no blend modes (iPhone drops them inside 3D cards) */
 @property --fx{syntax:'<percentage>';inherits:true;initial-value:50%}
@@ -243,6 +258,9 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
 .back .meta{margin-top:auto;border-top:1.5px solid rgba(243,239,230,.4);padding-top:3cqw;display:flex;flex-direction:column;gap:1cqw;font-weight:700;font-size:4.4cqw}
 .back .meta b{color:var(--lime);font-weight:700}
 .deck-hint{text-align:center;font-weight:700;font-size:1rem;color:var(--ink2)}
+/* touch screens: flat crossfade instead of a 3D flip, so faces never distort mid-turn */
+@media (hover:none){.card .flip,.card.flipped .flip{transform:none;transition:none}.face{transition:opacity .3s}.back{transform:none;opacity:0;pointer-events:none}.card.flipped .back{opacity:1}.card.flipped .front{opacity:0}}
+@media (max-width:600px){.deck{--cw:70vw}}
 
 /* venue: one compact band */
 .venue .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(1.2rem,3vw,2.4rem);align-items:stretch}
@@ -262,7 +280,9 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
 
 /* sponsors */
 .sponsors{border-top:2px solid var(--ink)}
-.logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.8rem,1.6vw,1.2rem)}
+.logos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.8rem,1.6vw,1.2rem)}
+a.logo{text-decoration:none;color:inherit}
+a.logo:hover{border-color:var(--ink)}
 .logo{background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:.8rem;padding:1.6rem 1rem 1.4rem;border:1px solid var(--line);text-align:center}
 .logo .lm{height:120px;display:grid;place-items:center;width:100%}
 .logo img.wide{height:clamp(28px,3.4vw,40px);width:auto;max-width:90%}
@@ -377,14 +397,16 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
   <div class="wrap">
     <h1 class="giant" aria-label="Mental Health Festival 2026"><span class="ln" aria-hidden="true"><span class="c drop" style="--d:0.05s;--r:19deg">M</span><span class="c drop" style="--d:0.11s;--r:33deg">e</span><span class="c drop" style="--d:0.17s;--r:21deg">n</span><span class="c drop" style="--d:0.23s;--r:19deg">t</span><span class="c drop" style="--d:0.29s;--r:27deg">a</span><span class="c drop" style="--d:0.35s;--r:37deg">l</span></span><span class="ln" aria-hidden="true"><span class="heal"><span class="c drop" style="--d:0.42s;--r:-14deg">H</span><span class="c drop" style="--d:0.48s;--r:-15deg">e</span><span class="c drop" style="--d:0.54s;--r:27deg">a</span><span class="c drop" style="--d:0.60s;--r:22deg">l</span></span><span class="c drop" style="--d:0.66s;--r:-15deg">t</span><span class="c drop" style="--d:0.72s;--r:-26deg">h</span><span class="yr c drop" style="--d:1.15s;--r:-20deg">2026</span></span><span class="ln" aria-hidden="true"><span class="c drop" style="--d:0.78s;--r:19deg">F</span><span class="c drop" style="--d:0.84s;--r:0deg">e</span><span class="c drop" style="--d:0.90s;--r:-20deg">s</span><span class="c drop" style="--d:0.96s;--r:-27deg">t</span><span class="c drop" style="--d:1.02s;--r:30deg">i</span><span class="c drop" style="--d:1.08s;--r:-33deg">v</span><span class="c drop" style="--d:1.14s;--r:38deg">a</span><span class="c drop" style="--d:1.20s;--r:12deg">l</span></span></h1>
     <div class="hero-side">
+      <div class="bigdate"><span class="d">11.21</span><span class="w"><span class="zh">星期六</span><span class="en">Saturday</span><br>14:30–19:30</span></div>
+      <p class="invite zh"><span class="k">我們邀請你，</span><span class="k">來參加全台灣</span><span class="k">最大的心理健康活動。</span></p>
+      <p class="invite en">You’re invited to Taiwan’s biggest mental health festival.</p>
+      <p class="lede zh"><span class="k">像逛一座樂園：</span><span class="k">一張票，兩層樓、六個空間。</span><span class="k">對談、工作坊、展覽、DJ 之夜，</span><span class="k">照著自己的節奏逛。</span></p>
+      <p class="lede en">Like a theme park: one ticket, two floors, six rooms. Panels, workshops, an exhibition and a DJ night, at your own pace.</p>
       <p class="tag zh"><span class="k">把心理健康，</span><span class="k">變成一種<em>時尚運動</em>。</span></p>
       <p class="tag en">Making mental health a <em>movement</em> in style.</p>
-      <p class="lede zh"><span class="k">用科學和藝術認識心理健康。</span><span class="k">走進來，就像逛一座遊樂園。</span></p>
-      <p class="lede en">Science and art, side by side, to show you mental health in a new light. Walk in the way you'd walk into a theme park.</p>
       <p class="proof zh"><span class="k">Cursor 設計負責人、</span><span class="k">參與 OpenAI 計畫的精神科醫師、</span><span class="k">25 萬人追蹤的創作者，</span><span class="k">同一天都在這裡。</span></p>
       <p class="proof en">Cursor’s head of design, a psychiatrist who has worked with OpenAI, and a creator followed by 250,000 people. Same day, same place.</p>
       <dl class="facts">
-        <dt><span class="zh">時間</span><span class="en">When</span></dt><dd><span class="zh">2026.11.21（六）14:30–19:30</span><span class="en">Sat 21 Nov 2026, 14:30–19:30</span></dd>
         <dt><span class="zh">地點</span><span class="en">Where</span></dt><dd><span class="zh">義居雅舍 · 捷運西湖站</span><span class="en">italife, near MRT Xihu</span></dd>
       </dl>
       <div class="cta-row">
@@ -405,7 +427,14 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
       <h2 id="h-on"><span class="zh">兩層樓，六個空間</span><span class="en">Two floors, six rooms</span></h2>
       <p><span class="zh">一張票逛遍整個場地，每個空間發生不同的事。</span><span class="en">One ticket, the whole venue. Every room has something different going on.</span></p>
     </div>
-    <p class="intro rv"><span class="zh">兩場國際對談同時開講，講者來自軟體業、創業圈和跨國人資。一場聊 AI 之後的職涯焦慮，一場聊在異鄉生活的心情。</span><span class="en">Two panels run side by side, with speakers from software, startups and global HR. One tackles career anxiety in the age of AI; the other, what it feels like to build a life far from home.</span></p>
+    <ol class="route rv">
+      <li><b>14:30</b><span class="zh">報到，領你的精神維他命卡</span><span class="en">Check in, pick up your vitamin card</span></li>
+      <li class="hi"><b>15:00</b><span class="zh">兩場對談同時開講，選一場</span><span class="en">Two panels at once: pick one</span></li>
+      <li><b>16:00</b><span class="zh">中場交流，逛展覽</span><span class="en">Break, mingle, see the exhibition</span></li>
+      <li><b>16:30</b><span class="zh">工作坊開始，依票種入場</span><span class="en">Workshops start, by ticket type</span></li>
+      <li class="night"><b>18:30</b><span class="zh">DJ 之夜，一起放鬆</span><span class="en">DJ night, wind down together</span></li>
+    </ol>
+    <p class="same rv"><b>15:00–16:00</b><span class="zh"><span class="k">兩場對談同時進行，</span><span class="k">中文一場、英文一場，</span><span class="k">選一場參加。</span></span><span class="en">Both panels run at the same time, one in Mandarin and one in English. Pick one.</span></p>
     <div class="panels">
       <article class="panel o rv">
         <div class="where"><span class="zh">中文對談 · 2F · 15:00–16:00</span><span class="en">In Mandarin · 2F · 15:00–16:00</span></div>
@@ -502,6 +531,10 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
         <div class="lm"><img src="logos/cravee.jpg" alt="cravee." class="sq"></div>
         <div class="role"><span class="zh">cravee. · 甜點夥伴</span><span class="en">cravee. · Sweets partner</span></div>
       </div>
+      <a class="logo rv" href="https://dearstranger.life/" target="_blank" rel="noopener">
+        <div class="lm"><div class="wm"><b>親愛的陌生人</b></div></div>
+        <div class="role"><span class="zh">親愛的陌生人 · 夥伴</span><span class="en">Dear Stranger · Partner</span></div>
+      </a>
       <div class="logo rv">
         <div class="lm"><div class="wm"><b>丹楓印刷</b></div></div>
         <div class="role"><span class="zh">丹楓印刷 · 印刷夥伴</span><span class="en">Danfeng Printing · Print partner</span></div>
@@ -530,7 +563,6 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
       <div class="sum" id="sum"></div>
       <a class="btn" id="buybtn" href="https://www.accupass.com/event/2610020512371501376639" target="_blank" rel="noopener"><span class="zh">購票</span><span class="en">Buy tickets</span></a>
     </div>
-    <p class="fine"><span class="zh">11/13 前可透過 Accupass 申請退票，酌收 10% 手續費。</span><span class="en">Refunds are available through Accupass until 13 Nov, minus a 10% fee.</span></p>
   </div>
 </section>
 
@@ -630,6 +662,7 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
   const img=p=>`photos/${p.img||p.f}.jpg`;
   const short=n=>n.replace('Dr. ','');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const touch=matchMedia('(hover: none)').matches; // phones: no 3D tilt, the photo must never skew
 
   // ticker
   const WHO=[['工程師','Engineers'],['精神科醫師','Psychiatrist'],['身體覺察教練','Embodiment coach'],['創業家','Founders'],['Cursor 設計負責人','Cursor’s head of design'],['25 萬追蹤創作者','Creator with 250K followers'],['跨國人資','Global HR'],['藝術治療師','Art therapists'],['自閉症藝術家','Autistic artists'],['電音療癒師','Sound healers'],['紅酒瑜珈老師','Wine yoga teacher'],['睡眠美學療癒師','Sleep & space healer'],['藝術心理治療師','Art psychotherapist'],['旅台法國創作者','French creator in Taiwan'],['DJ','DJ']];
@@ -666,7 +699,7 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
   showRoom(0);
 
   // line-up wall
-  const wall=(t,el)=>{const L=SP.filter(p=>p.t===t);document.getElementById(el).innerHTML=L.map((p,i)=>`<button type="button" class="nm ${p.big?'l':'m'}" data-go="${p.f}"><span class="n">${short(p.n)}</span><span class="ty">${bi(p.ty[0],p.ty[1])}</span></button>${i<L.length-1?'<span class="sep" aria-hidden="true"></span>':''}`).join('');};
+  const wall=(t,el)=>{const L=SP.filter(p=>p.t===t);document.getElementById(el).innerHTML=L.map((p,i)=>`<button type="button" class="nm ${p.big?'l':'m'}" data-go="${p.f}"><span class="n">${short(p.n)}</span><span class="ty">${bi(p.ty[0],p.ty[1])}</span></button>`).join('');};
   wall('talk','w-talk'); wall('work','w-work');
   const fl=document.getElementById('float');
   document.querySelectorAll('.nm[data-go]').forEach(b=>{
@@ -721,7 +754,7 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
   let fr=0, mv=null;
   function flow(){ fr=0; const mid=deck.scrollLeft+deck.clientWidth/2;
     cards.forEach(c=>{ if(c.classList.contains('touched')) return; const rel=Math.max(-1.4,Math.min(1.4,(c.offsetLeft+c.offsetWidth/2-mid)/c.offsetWidth)), a=Math.min(1,Math.abs(rel));
-      c.style.setProperty('--ry',(reduce?0:rel*-24).toFixed(1)+'deg'); c.style.setProperty('--fx',(50+rel*70).toFixed(0)+'%'); c.style.setProperty('--gx',(50+rel*70).toFixed(0)+'%'); c.style.setProperty('--fo',(.3+.6*(1-a)).toFixed(2)); }); }
+      c.style.setProperty('--ry',(reduce||touch?0:rel*-24).toFixed(1)+'deg'); c.style.setProperty('--fx',(50+rel*70).toFixed(0)+'%'); c.style.setProperty('--gx',(50+rel*70).toFixed(0)+'%'); c.style.setProperty('--fo',(.3+.6*(1-a)).toFixed(2)); }); }
   deck.addEventListener('scroll',()=>{ if(!fr) fr=requestAnimationFrame(flow); deck.classList.add('moving'); clearTimeout(mv); mv=setTimeout(()=>deck.classList.remove('moving'),700); },{passive:true});
   addEventListener('resize',flow); requestAnimationFrame(flow);
   let st=null; deck.addEventListener('scroll',()=>{clearTimeout(st); st=setTimeout(()=>{const mid=deck.scrollLeft+deck.clientWidth/2; let best=0,bd=1e9; cards.forEach((c,k)=>{const d=Math.abs(c.offsetLeft+c.offsetWidth/2-mid); if(d<bd){bd=d;best=k;}}); if(best!==cur) mark(best);},90);},{passive:true});
@@ -729,11 +762,13 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
   tabs.addEventListener('click',e=>{const t=e.target.closest('.tab'); if(t){hold(); show(+t.dataset.i);}});
   cards.forEach((c,k)=>{
     c.addEventListener('click',()=>{ if(k!==cur){show(k);return;} c.classList.toggle('flipped'); hold(); });
-    c.addEventListener('pointermove',e=>{ if(k!==cur||reduce) return; const r=c.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+    c.addEventListener('pointermove',e=>{ if(k!==cur||reduce||touch) return; const r=c.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
       c.classList.add('touched'); c.style.setProperty('--ry',((x-.5)*22).toFixed(1)+'deg'); c.style.setProperty('--rx',((.5-y)*16).toFixed(1)+'deg'); c.style.setProperty('--fx',(x*100).toFixed(0)+'%'); c.style.setProperty('--gx',(x*100).toFixed(0)+'%'); c.style.setProperty('--gy',(y*100).toFixed(0)+'%'); c.style.setProperty('--fo','.95'); });
     const rest=()=>{c.classList.remove('touched'); ['--rx','--gy'].forEach(v=>c.style.removeProperty(v)); flow();};
     c.addEventListener('pointerleave',rest); c.addEventListener('pointercancel',rest);
   });
+  // a tap on the deck's edge (outside any card's hit box) still goes to the card under the finger
+  deck.addEventListener('click',e=>{ if(e.target.closest('.card')) return; const x=e.clientX; const k=cards.findIndex(c=>{const r=c.getBoundingClientRect(); return x>=r.left&&x<=r.right;}); if(k>=0){hold(); show(k);} });
   document.addEventListener('keydown',e=>{
     const r=box.getBoundingClientRect(); if(r.top>innerHeight*.6||r.bottom<innerHeight*.3) return;
     if(e.key==='ArrowRight'){hold();show(cur+1);} else if(e.key==='ArrowLeft'){hold();show(cur-1);}
