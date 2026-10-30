@@ -71,7 +71,8 @@ button{font:inherit;color:inherit}
 
 /* hero */
 .hero{background:var(--orange);color:var(--ink);padding-block:clamp(1.6rem,4vw,3rem) 0}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:end}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:start}
+.hero-main{min-width:0;display:flex;flex-direction:column;gap:clamp(1rem,2.2vw,1.8rem)}
 .hero h1{font-size:clamp(4rem,11vw,10rem);margin-left:-.04em;min-width:0}
 .hero{position:relative;overflow:hidden}
 .hero h1{position:relative;z-index:2;touch-action:pan-y}
@@ -93,7 +94,7 @@ button{font:inherit;color:inherit}
 .bigdate .d{font-family:var(--f-giant);font-size:clamp(5.5rem,13vw,10rem);letter-spacing:-.01em;color:var(--paper)}
 .bigdate .w{font-weight:900;font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.35;padding-bottom:.35em}
 .invite{font-weight:900;font-size:clamp(1.7rem,3.2vw,2.5rem);line-height:1.4;letter-spacing:.02em}
-.invite.en{font-family:var(--f-giant);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;font-size:clamp(2rem,4vw,3.2rem)}
+.invite.en{font-family:var(--f-giant);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;font-size:clamp(1.9rem,3.2vw,2.8rem)}
 .tag{font-weight:700;font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.6;letter-spacing:.04em}
 .tag.en{font-weight:700;letter-spacing:.01em}
 .tag em{font-style:normal;color:var(--paper)}
@@ -396,17 +397,19 @@ a.logo:hover{border-color:var(--ink)}
 <!-- 1 HERO -->
 <section class="hero" aria-label="Mental Health Festival 2026">
   <div class="wrap">
-    <h1 class="giant" aria-label="Mental Health Festival 2026"><span class="ln" aria-hidden="true"><span class="c drop" style="--d:0.05s;--r:19deg">M</span><span class="c drop" style="--d:0.11s;--r:33deg">e</span><span class="c drop" style="--d:0.17s;--r:21deg">n</span><span class="c drop" style="--d:0.23s;--r:19deg">t</span><span class="c drop" style="--d:0.29s;--r:27deg">a</span><span class="c drop" style="--d:0.35s;--r:37deg">l</span></span><span class="ln" aria-hidden="true"><span class="heal"><span class="c drop" style="--d:0.42s;--r:-14deg">H</span><span class="c drop" style="--d:0.48s;--r:-15deg">e</span><span class="c drop" style="--d:0.54s;--r:27deg">a</span><span class="c drop" style="--d:0.60s;--r:22deg">l</span></span><span class="c drop" style="--d:0.66s;--r:-15deg">t</span><span class="c drop" style="--d:0.72s;--r:-26deg">h</span><span class="yr c drop" style="--d:1.15s;--r:-20deg">2026</span></span><span class="ln" aria-hidden="true"><span class="c drop" style="--d:0.78s;--r:19deg">F</span><span class="c drop" style="--d:0.84s;--r:0deg">e</span><span class="c drop" style="--d:0.90s;--r:-20deg">s</span><span class="c drop" style="--d:0.96s;--r:-27deg">t</span><span class="c drop" style="--d:1.02s;--r:30deg">i</span><span class="c drop" style="--d:1.08s;--r:-33deg">v</span><span class="c drop" style="--d:1.14s;--r:38deg">a</span><span class="c drop" style="--d:1.20s;--r:12deg">l</span></span></h1>
+    <div class="hero-main">
+      <h1 class="giant" aria-label="Mental Health Festival 2026"><span class="ln" aria-hidden="true"><span class="c drop" style="--d:0.05s;--r:19deg">M</span><span class="c drop" style="--d:0.11s;--r:33deg">e</span><span class="c drop" style="--d:0.17s;--r:21deg">n</span><span class="c drop" style="--d:0.23s;--r:19deg">t</span><span class="c drop" style="--d:0.29s;--r:27deg">a</span><span class="c drop" style="--d:0.35s;--r:37deg">l</span></span><span class="ln" aria-hidden="true"><span class="heal"><span class="c drop" style="--d:0.42s;--r:-14deg">H</span><span class="c drop" style="--d:0.48s;--r:-15deg">e</span><span class="c drop" style="--d:0.54s;--r:27deg">a</span><span class="c drop" style="--d:0.60s;--r:22deg">l</span></span><span class="c drop" style="--d:0.66s;--r:-15deg">t</span><span class="c drop" style="--d:0.72s;--r:-26deg">h</span><span class="yr c drop" style="--d:1.15s;--r:-20deg">2026</span></span><span class="ln" aria-hidden="true"><span class="c drop" style="--d:0.78s;--r:19deg">F</span><span class="c drop" style="--d:0.84s;--r:0deg">e</span><span class="c drop" style="--d:0.90s;--r:-20deg">s</span><span class="c drop" style="--d:0.96s;--r:-27deg">t</span><span class="c drop" style="--d:1.02s;--r:30deg">i</span><span class="c drop" style="--d:1.08s;--r:-33deg">v</span><span class="c drop" style="--d:1.14s;--r:38deg">a</span><span class="c drop" style="--d:1.20s;--r:12deg">l</span></span></h1>
+        <div class="bigdate"><span class="d">11.21</span><span class="w"><span class="zh">星期六</span><span class="en">Saturday</span><br>14:30–19:30</span></div>
+    </div>
     <div class="hero-side">
-      <div class="bigdate"><span class="d">11.21</span><span class="w"><span class="zh">星期六</span><span class="en">Saturday</span><br>14:30–19:30</span></div>
       <p class="invite zh"><span class="k">我們邀請你，</span><span class="k">來參加全台灣</span><span class="k">最大的心理健康活動。</span></p>
-      <p class="invite en">You’re invited to Taiwan’s biggest mental health festival.</p>
+      <p class="invite en">You're invited to Taiwan's biggest mental health festival.</p>
       <p class="lede zh"><span class="k">像逛一座樂園：</span><span class="k">一張票，兩層樓、六個空間。</span><span class="k">對談、工作坊、展覽、DJ 之夜，</span><span class="k">照著自己的節奏逛。</span></p>
       <p class="lede en">Like a theme park: one ticket, two floors, six rooms. Panels, workshops, an exhibition and a DJ night, at your own pace.</p>
       <p class="tag zh"><span class="k">把心理健康，</span><span class="k">變成一種<em>時尚運動</em>。</span></p>
       <p class="tag en">Making mental health a <em>movement</em> in style.</p>
       <p class="proof zh"><span class="k">前 Cursor 設計負責人、</span><span class="k">參與 OpenAI 計畫的精神科醫師、</span><span class="k">25 萬人追蹤的創作者，</span><span class="k">同一天都在這裡。</span></p>
-      <p class="proof en">Cursor’s former head of design, a psychiatrist who has worked with OpenAI, and a creator followed by 250,000 people. Same day, same place.</p>
+      <p class="proof en">Cursor's former head of design, a psychiatrist who has worked with OpenAI, and a creator followed by 250,000 people. Same day, same place.</p>
       <dl class="facts">
         <dt><span class="zh">地點</span><span class="en">Where</span></dt><dd><span class="zh">義居雅舍 · 捷運西湖站</span><span class="en">italife, near MRT Xihu</span></dd>
       </dl>
@@ -441,7 +444,7 @@ a.logo:hover{border-color:var(--ink)}
         <div class="where"><span class="zh">中文對談 · 2F · 15:00–16:00</span><span class="en">In Mandarin · 2F · 15:00–16:00</span></div>
         <h3>Career anxiety,<br>after AI</h3>
         <div class="zt zh">職涯焦慮，AI 之後</div>
-        <p><span class="zh">AI 走進職場之後，焦慮的樣子也變了。跨國人才主管、從矽谷搬來台北的設計師，和聊心茶室創辦人一起聊。</span><span class="en">AI has changed what work anxiety looks like. A global talent lead, a designer who swapped Silicon Valley for Taipei, and HealYou’s founder talk it through.</span></p>
+        <p><span class="zh">AI 走進職場之後，焦慮的樣子也變了。跨國人才主管、從矽谷搬來台北的設計師，和聊心茶室創辦人一起聊。</span><span class="en">AI has changed what work anxiety looks like. A global talent lead, a designer who swapped Silicon Valley for Taipei, and HealYou's founder talk it through.</span></p>
         <div class="who" data-who="jessie,lydia,ryo"></div>
       </article>
       <article class="panel pu rv">
@@ -624,10 +627,10 @@ a.logo:hover{border-color:var(--ink)}
       sp:'25 萬人追蹤的創作者，公開說自己的憂鬱低潮，用故事陪大家走過轉變。',spe:'With 250,000 followers, she speaks openly about her depression and uses stories to help others through change.'},
     {f:'drlin',n:'Dr. Yu-Shiou Lin',z:'林鈺修',t:'talk',big:1,pos:'50% 8%',ds:'#141414',dh:'#FF5A1F',ch:'cloud',s:'en',
       ty:['精神科醫師','Psychiatrist'],r:'精神科專科醫師 · AI 與心理健康',re:'Board-certified psychiatrist · AI and mental health',
-      sp:'參與過 OpenAI 心理健康評估計畫的精神科醫師，橫跨臨床、研究與 AI。',spe:'A psychiatrist who has contributed to OpenAI’s mental health evaluations, working across clinical care, research and AI.'},
+      sp:'參與過 OpenAI 心理健康評估計畫的精神科醫師，橫跨臨床、研究與 AI。',spe:'A psychiatrist who has contributed to OpenAI&#39;s mental health evaluations, working across clinical care, research and AI.'},
     {f:'lydia',n:'Lydia Huang',z:'',t:'talk',pos:'50% 12%',ds:'#0F4D2C',dh:'#FF8FBF',ch:'square',s:'zh',
       ty:['Worca Head of Talent','Head of Talent, Worca'],r:'Worca Head of Talent · NetExpat 職涯顧問 · 人資萬應室創辦人',re:'Head of Talent, Worca · Career consultant, NetExpat · Founder of HRRR',
-      sp:'<span class="k">幫 15 國以上的專業人士，</span><span class="k">在異地重建職涯。</span><span class="k">NetExpat 在台唯一的</span><span class="k">職涯顧問。</span>',spe:'Has helped professionals from more than 15 countries rebuild their careers abroad, as NetExpat’s only career consultant in Taiwan.'},
+      sp:'<span class="k">幫 15 國以上的專業人士，</span><span class="k">在異地重建職涯。</span><span class="k">NetExpat 在台唯一的</span><span class="k">職涯顧問。</span>',spe:'Has helped professionals from more than 15 countries rebuild their careers abroad, as NetExpat&#39;s only career consultant in Taiwan.'},
     {f:'armand',n:'Armand',z:'孟得',t:'talk',pos:'50% 36%',ds:'#B5134F',dh:'#BFEE8E',ch:'tri',s:'en',
       ty:['旅台法國創作者','French creator in Taiwan'],r:'短影音內容創作者',re:'Short-form video creator',
       sp:'用幽默又真誠的短影音，記錄一個法國人在台灣找到歸屬的過程。',spe:'Funny, honest short videos about a Frenchman finding where he belongs in Taiwan.'},
@@ -683,7 +686,7 @@ a.logo:hover{border-color:var(--ink)}
     ['purple','Room A','電音療癒','Sound healing','讓聲音替你把腦袋裡的雜訊調小。','Let sound turn down the noise in your head.','15:00 / 17:00'],
     ['pink','Room B','紅酒瑜珈','Wine yoga','做完瑜珈，再一起喝一杯。','Yoga first, then a glass of red together.','17:00'],
     ['square','Room C','藝術治療','Art therapy','藝術治療師 Helen 先介紹什麼是藝術治療，再帶一場療癒工作坊，親手做一次。','Art therapist Helen explains what art therapy is, then leads a hands-on healing workshop.','16:30'],
-    ['tri','Room D','身體療癒 · Body Pages','Body Pages','Tracy 帶的溫和練習：身體掃描、直覺繪畫、分享。聽身體說話，把感受畫出來，再一起見證。','Tracy’s gentle practice of body scans, intuitive drawing and sharing. Tune in, draw what you feel, then witness each other.','16:30']
+    ['tri','Room D','身體療癒 · Body Pages','Body Pages','Tracy 帶的溫和練習：身體掃描、直覺繪畫、分享。聽身體說話，把感受畫出來，再一起見證。','Tracy&#39;s gentle practice of body scans, intuitive drawing and sharing. Tune in, draw what you feel, then witness each other.','16:30']
   ];
   const rt=document.getElementById('room-tabs'), rc=document.getElementById('room-card'), rBox=document.getElementById('rooms');
   let ri=0, rtimer=null, rhover=false;
