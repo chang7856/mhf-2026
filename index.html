@@ -84,7 +84,7 @@ button{font:inherit;color:inherit}
 /* HEAL breathes: slow inhale and exhale, about one breath every 4 seconds */
 .hero h1 .heal{display:inline-block;color:var(--paper);transform-origin:50% 85%;animation:breath 4.2s ease-in-out 2s infinite}
 @keyframes breath{0%,100%{transform:scale(1);color:var(--paper);text-shadow:none}50%{transform:scale(1.05);color:#FFE3D6;text-shadow:0 0 .3em rgba(243,239,230,.5)}}
-.pile{position:relative;height:clamp(150px,19vw,230px);margin-top:clamp(.4rem,2vw,1.4rem)}
+.pile{position:relative;height:clamp(150px,15vw,210px)}
 .pile img{position:absolute;left:0;top:0;width:var(--s);height:var(--s);object-fit:contain;touch-action:none;cursor:grab;user-select:none;-webkit-user-drag:none;will-change:transform;z-index:3}
 .pile img:active{cursor:grabbing}
 .hero h1 .yr{font-size:.34em;margin-left:.14em;color:var(--ink);letter-spacing:.02em}
@@ -400,6 +400,7 @@ a.logo:hover{border-color:var(--ink)}
     <div class="hero-main">
       <h1 class="giant" aria-label="Mental Health Festival 2026"><span class="ln" aria-hidden="true"><span class="c drop" style="--d:0.05s;--r:19deg">M</span><span class="c drop" style="--d:0.11s;--r:33deg">e</span><span class="c drop" style="--d:0.17s;--r:21deg">n</span><span class="c drop" style="--d:0.23s;--r:19deg">t</span><span class="c drop" style="--d:0.29s;--r:27deg">a</span><span class="c drop" style="--d:0.35s;--r:37deg">l</span></span><span class="ln" aria-hidden="true"><span class="heal"><span class="c drop" style="--d:0.42s;--r:-14deg">H</span><span class="c drop" style="--d:0.48s;--r:-15deg">e</span><span class="c drop" style="--d:0.54s;--r:27deg">a</span><span class="c drop" style="--d:0.60s;--r:22deg">l</span></span><span class="c drop" style="--d:0.66s;--r:-15deg">t</span><span class="c drop" style="--d:0.72s;--r:-26deg">h</span><span class="yr c drop" style="--d:1.15s;--r:-20deg">2026</span></span><span class="ln" aria-hidden="true"><span class="c drop" style="--d:0.78s;--r:19deg">F</span><span class="c drop" style="--d:0.84s;--r:0deg">e</span><span class="c drop" style="--d:0.90s;--r:-20deg">s</span><span class="c drop" style="--d:0.96s;--r:-27deg">t</span><span class="c drop" style="--d:1.02s;--r:30deg">i</span><span class="c drop" style="--d:1.08s;--r:-33deg">v</span><span class="c drop" style="--d:1.14s;--r:38deg">a</span><span class="c drop" style="--d:1.20s;--r:12deg">l</span></span></h1>
         <div class="bigdate"><span class="d">11.21</span><span class="w"><span class="zh">星期六</span><span class="en">Saturday</span><br>14:30–19:30</span></div>
+        <div class="pile" id="pile" aria-hidden="true"></div>
     </div>
     <div class="hero-side">
       <p class="invite zh"><span class="k">我們邀請你，</span><span class="k">來參加全台灣</span><span class="k">最大的心理健康活動。</span></p>
@@ -419,7 +420,6 @@ a.logo:hover{border-color:var(--ink)}
       </div>
     </div>
   </div>
-  <div class="wrap"><div class="pile" id="pile" aria-hidden="true"></div></div>
 </section>
 
 <div class="ticker" aria-hidden="true"><div class="track" id="ticker"></div></div>
@@ -560,7 +560,7 @@ a.logo:hover{border-color:var(--ink)}
 <section class="tickets" id="tickets" aria-labelledby="h-t">
   <div class="wrap">
     <div class="sec-h rv"><h2 id="h-t"><span class="zh">選一種劑量</span><span class="en">Tickets</span></h2>
-      <p><span class="zh">每張票都含一場對談、展覽、藝術治療和 DJ 之夜。工作坊名額少，想去要早點選。</span><span class="en">Every ticket includes one panel, the exhibition, art therapy and the DJ night. Workshop places are limited, so book early.</span></p>
+      <p><span class="zh">每張票都含一場對談、展覽、藝術治療、睡眠美學療癒和 DJ 之夜。工作坊名額少，想去要早點選。</span><span class="en">Every ticket includes one panel, the exhibition, art therapy, sleep &amp; space healing and the DJ night. Workshop places are limited, so book early.</span></p>
     </div>
     <div class="tix" role="radiogroup" aria-label="Ticket type" id="tix"></div>
     <div class="buy">
@@ -799,7 +799,7 @@ a.logo:hover{border-color:var(--ink)}
 
   // tickets
   const T=[
-    {id:'tablet',n:'Tablet',p:599,inc:[['一場對談（兩場擇一）','One panel (your choice)'],['自閉症藝術家聯展','Exhibition by autistic artists'],['藝術治療','Art therapy'],['DJ 之夜 · 交流','DJ night: social &amp; live music']]},
+    {id:'tablet',n:'Tablet',p:599,inc:[['一場對談（兩場擇一）','One panel (your choice)'],['自閉症藝術家聯展','Exhibition by autistic artists'],['藝術治療','Art therapy'],['睡眠美學療癒','Sleep &amp; space healing'],['DJ 之夜 · 交流','DJ night: social &amp; live music']]},
     {id:'daily',n:'Daily dose',p:999,inc:[['Tablet 全部內容','Everything in Tablet'],['再加一個工作坊','Plus one workshop']],opts:[
       ['s1','電音療癒 15:00','Sound healing 15:00','限量 15 張','15 places'],['s2','電音療癒 17:00','Sound healing 17:00','限量 20 張','20 places'],['y','紅酒瑜珈 17:00','Wine yoga 17:00','限量 5 張','5 places']]},
     {id:'full',n:'Full course',p:1299,inc:[['Tablet 全部內容','Everything in Tablet'],['電音療癒 15:00','Sound healing 15:00'],['紅酒瑜珈 17:00','Wine yoga 17:00'],['限量 5 張','5 places']]}
@@ -876,7 +876,8 @@ a.logo:hover{border-color:var(--ink)}
     let run=true, last=performance.now();
     const loop=t=>{ if(run){ Engine.update(eng,Math.min(32,t-last)); draw(); } last=t; requestAnimationFrame(loop); };
     requestAnimationFrame(loop);
-    if('IntersectionObserver' in window) new IntersectionObserver(es=>{run=es[0].isIntersecting;},{rootMargin:'200px'}).observe(pile);
+    const t0=performance.now(); // always play the first fall, then pause only while the pile is off screen
+    if('IntersectionObserver' in window) new IntersectionObserver(es=>{run=performance.now()-t0<6000||es[0].isIntersecting;},{rootMargin:'200px'}).observe(pile);
     addEventListener('resize',()=>{const nW=pile.clientWidth,nH=pile.clientHeight; if(nW===W&&nH===H) return; W=nW;H=nH;
       Body.setPosition(floor,{x:W/2,y:H+40}); Body.setPosition(rw,{x:W+40,y:0}); bodies.forEach(b=>{Sleeping.set(b,false); if(b.position.x>W) Body.setPosition(b,{x:W-s,y:b.position.y});});});
     // drag and fling with a finger or the mouse
@@ -891,9 +892,9 @@ a.logo:hover{border-color:var(--ink)}
     ['pointerup','pointercancel','lostpointercapture'].forEach(ev=>pile.addEventListener(ev,drop));
   }
 
-  // language: saved choice, else browser language
-  function setLang(l){root.dataset.lang=l; root.lang=l==='zh'?'zh-Hant-TW':'en'; document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.set===l))); try{localStorage.setItem('mhf-site-lang',l);}catch(e){} }
-  let L=null; try{L=localStorage.getItem('mhf-site-lang');}catch(e){}
+  // language: the phone's own language on every visit; a tap on 中/EN only lasts for this visit
+  function setLang(l){root.dataset.lang=l; root.lang=l==='zh'?'zh-Hant-TW':'en'; document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.set===l))); try{sessionStorage.setItem('mhf-site-lang',l);}catch(e){} }
+  let L=null; try{L=sessionStorage.getItem('mhf-site-lang');}catch(e){}
   if(L!=='zh'&&L!=='en'){const langs=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'zh']);L=/^zh/i.test(langs[0])?'zh':'en';}
   setLang(L);
   document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.set)));
