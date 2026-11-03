@@ -123,5 +123,5 @@ description: 拿到活動主視覺之後，延伸出整套活動設計：視覺�
 
 ## 範例
 
-- 活動網站：https://chang7856.github.io/mhf-2026/
+- 活動網站：https://event2026.healyou.io/
 - 作者：張道芳 Jessie Chang，聊心茶室 HealYou 創辦人 https://www.linkedin.com/in/taofang-chang/

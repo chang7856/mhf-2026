@@ -12,5 +12,5 @@
 
 Claude 會告訴你要準備什麼，一步一步帶你做。
 
-範例網站：https://chang7856.github.io/mhf-2026/
+範例網站：https://event2026.healyou.io/
 作者：張道芳 Jessie Chang｜https://www.linkedin.com/in/taofang-chang/
