@@ -439,21 +439,21 @@ a.logo:hover{border-color:var(--ink)}
       <li><b>14:30</b><span class="zh">報到，領你的精神維他命卡</span><span class="en">Check in, pick up your vitamin card</span></li>
       <li class="hi"><b>15:00</b><span class="zh">兩場對談同時開講，選一場</span><span class="en">Two panels at once: pick one</span></li>
       <li><b>16:00</b><span class="zh">中場交流，逛展覽</span><span class="en">Break, mingle, see the exhibition</span></li>
-      <li><b>16:30</b><span class="zh">電音療癒 ①、紅酒瑜珈、藝術治療（免費）、睡眠療癒</span><span class="en">Sound healing 1, wine yoga, art therapy (free), sleep ritual</span></li>
+      <li><b>16:30</b><span class="zh">電音療癒 ①、紅酒瑜珈、藝術治療、睡眠療癒</span><span class="en">Sound healing 1, wine yoga, art therapy, sleep ritual</span></li>
       <li><b>17:30</b><span class="zh">電音療癒 ②、身體療癒 Body Pages</span><span class="en">Sound healing 2, Body Pages</span></li>
       <li class="night"><b>18:30</b><span class="zh">DJ 之夜，一起放鬆</span><span class="en">DJ night, wind down together</span></li>
     </ol>
     <p class="same rv"><b>15:00–16:00</b><span class="zh"><span class="k">兩場對談同時進行，</span><span class="k">中文一場、英文一場，</span><span class="k">選一場參加。</span></span><span class="en">Both panels run at the same time, one in Mandarin and one in English. Pick one.</span></p>
     <div class="panels">
       <article class="panel o rv">
-        <div class="where"><span class="zh">中文對談 · 2F · 15:00–16:00</span><span class="en">In Mandarin · 2F · 15:00–16:00</span></div>
+        <div class="where"><span class="zh">中文對談 · 1F · 15:00–16:00</span><span class="en">In Mandarin · 1F · 15:00–16:00</span></div>
         <h3>Career anxiety,<br>after AI</h3>
         <div class="zt zh">職涯焦慮，AI 之後</div>
         <p><span class="zh">AI 走進職場之後，焦慮的樣子也變了。跨國人才主管、從矽谷搬來台北的設計師，和聊心茶室創辦人一起聊。</span><span class="en">AI has changed what work anxiety looks like. A global talent lead, a designer who swapped Silicon Valley for Taipei, and HealYou's founder talk it through.</span></p>
         <div class="who" data-who="jessie,lydia,ryo"></div>
       </article>
       <article class="panel pu rv">
-        <div class="where"><span class="zh">英文對談 · 1F · 15:00–16:00</span><span class="en">In English · 1F · 15:00–16:00</span></div>
+        <div class="where"><span class="zh">英文對談 · 2F · 15:00–16:00</span><span class="en">In English · 2F · 15:00–16:00</span></div>
         <h3>Life, feelings<br>&amp; our stories</h3>
         <div class="zt zh">外國人在台灣的故事</div>
         <p><span class="zh">在異鄉生活，壓力從哪裡來？兩位跨文化創作者和一位精神科醫師，聊身份的轉換，和真正幫上忙的事。英文進行。</span><span class="en">Where does the pressure of living abroad come from? Two cross-cultural creators and a psychiatrist on shifting identities and what actually helped.</span></p>
@@ -659,12 +659,12 @@ a.logo:hover{border-color:var(--ink)}
       sp:'<span class="k">用織品觸感、光線</span><span class="k">和睡前儀式，</span><span class="k">陪你把臥室變回</span><span class="k">能好好休息的地方。</span>',spe:'Fabric, light and a bedtime ritual: small changes that turn the bedroom back into a place to rest.'}
   ];
   const SESS={
-    zh:['中文對談 · 2F · 15:00','Mandarin panel · 2F · 15:00'],
-    en:['英文對談 · 1F · 15:00','English panel · 1F · 15:00'],
-    sound:['電音療癒 · Room A · 16:30 / 17:30','Sound healing · Room A · 16:30 / 17:30'],
-    yoga:['紅酒瑜珈 · Room B · 16:30','Wine yoga · Room B · 16:30'],
-    body:['身體療癒 · Room D · 17:30','Body Pages · Room D · 17:30'],
-    art:['藝術治療 · Room C · 16:30 · 免費','Art therapy · Room C · 16:30 · free'],
+    zh:['中文對談 · 1F · 15:00','Mandarin panel · 1F · 15:00'],
+    en:['英文對談 · 2F · 15:00','English panel · 2F · 15:00'],
+    sound:['電音療癒 · 16:30 / 17:30','Sound healing · 16:30 / 17:30'],
+    yoga:['紅酒瑜珈 · 16:30','Wine yoga · 16:30'],
+    body:['身體療癒 · 17:30','Body Pages · 17:30'],
+    art:['藝術治療 · 16:30','Art therapy · 16:30'],
     sleep:['睡眠療癒 · 16:30','Sleep ritual · 16:30']
   };
   const bi=(z,e)=>`<span class="zh">${z}</span><span class="en">${e}</span>`;
@@ -686,12 +686,12 @@ a.logo:hover{border-color:var(--ink)}
 
   // rooms strip: which space hosts what
   const RM=[
-    ['cloud','1F','大廳','Hall','英文對談、自閉症藝術家聯展，晚上變成 DJ 之夜。','The English panel and the exhibition by day, DJ night after dark.','15:00 · 18:30'],
-    ['daisy','2F','講座 · 展覽','Talks & exhibition','中文對談，和更多自閉症藝術家的作品。','The Mandarin panel and more of the exhibition.','15:00'],
-    ['purple','Room A','電音療癒','Sound healing','讓聲音替你把腦袋裡的雜訊調小。','Let sound turn down the noise in your head.','16:30 / 17:30'],
-    ['pink','Room B','紅酒瑜珈','Wine yoga','做完瑜珈，再一起喝一杯。','Yoga first, then a glass of red together.','16:30'],
-    ['square','Room C','藝術治療','Art therapy','藝術治療師 Helen 先介紹什麼是藝術治療，再帶一場療癒工作坊，親手做一次。','Art therapist Helen explains what art therapy is, then leads a hands-on healing workshop.','16:30'],
-    ['tri','Room D','身體療癒 · Body Pages','Body Pages','Tracy 帶的溫和練習：身體掃描、直覺繪畫、分享。聽身體說話，把感受畫出來，再一起見證。','Tracy&#39;s gentle practice of body scans, intuitive drawing and sharing. Tune in, draw what you feel, then witness each other.','16:30']
+    ['cloud','1F','大廳','Hall','中文對談、自閉症藝術家聯展，晚上變成 DJ 之夜。','The Mandarin panel and the exhibition by day, DJ night after dark.','15:00 · 18:30'],
+    ['daisy','2F','講座 · 展覽','Talks & exhibition','英文對談，和更多自閉症藝術家的作品。','The English panel and more of the exhibition.','15:00'],
+    ['purple','16:30','電音療癒','Sound healing','讓聲音替你把腦袋裡的雜訊調小。','Let sound turn down the noise in your head.','16:30 / 17:30'],
+    ['pink','16:30','紅酒瑜珈','Wine yoga','做完瑜珈，再一起喝一杯。','Yoga first, then a glass of red together.','16:30'],
+    ['square','16:30','藝術治療','Art therapy','藝術治療師 Helen 先介紹什麼是藝術治療，再帶一場療癒工作坊，親手做一次。','Art therapist Helen explains what art therapy is, then leads a hands-on healing workshop.','16:30'],
+    ['tri','17:30','身體療癒 · Body Pages','Body Pages','Tracy 帶的溫和練習：身體掃描、直覺繪畫、分享。聽身體說話，把感受畫出來，再一起見證。','Tracy&#39;s gentle practice of body scans, intuitive drawing and sharing. Tune in, draw what you feel, then witness each other.','16:30']
   ];
   const rt=document.getElementById('room-tabs'), rc=document.getElementById('room-card'), rBox=document.getElementById('rooms');
   let ri=0, rtimer=null, rhover=false;
@@ -832,15 +832,15 @@ a.logo:hover{border-color:var(--ink)}
   const S=[
     ['14:30','報到','Check-in','','','1F'],
     ['14:45','開幕','Opening','','','1F'],
-    ['15:00','中文對談：職涯焦慮，AI 之後','Mandarin panel: Career anxiety, after AI','Jessie Chang · Lydia Huang · Ryo Lu','Jessie Chang · Lydia Huang · Ryo Lu','2F',1],
-    ['15:00','英文對談：外國人在台灣的故事','English panel: Life, feelings & our stories','Jolie Chi · Armand · Dr. Yu-Shiou Lin','Jolie Chi · Armand · Dr. Yu-Shiou Lin','1F',1],
+    ['15:00','中文對談：職涯焦慮，AI 之後','Mandarin panel: Career anxiety, after AI','Jessie Chang · Lydia Huang · Ryo Lu','Jessie Chang · Lydia Huang · Ryo Lu','1F',1],
+    ['15:00','英文對談：外國人在台灣的故事','English panel: Life, feelings & our stories','Jolie Chi · Armand · Dr. Yu-Shiou Lin','Jolie Chi · Armand · Dr. Yu-Shiou Lin','2F',1],
     ['16:00','中場交流','Break and mingling','','','1F · 2F'],
-    ['16:30','電音療癒 第一場','Sound healing, session 1','Yasu · Melody Young','Yasu · Melody Young','Room A'],
-    ['16:30','紅酒瑜珈','Wine yoga','Joy · 請穿方便活動的服裝','Joy · Wear comfortable clothes','Room B'],
-    ['16:30','藝術治療：認識藝術治療 + 療癒工作坊','Art therapy: an introduction, then a healing workshop','Helen 莊雯惠 · 免費，不用買票','Helen Chuang · free, no ticket needed','Room C'],
-    ['16:30','睡眠療癒','Sleep ritual','Becky 貝姬 · 織品、光線、睡前儀式','Becky · fabric, light, bedtime ritual','依現場公告'],
-    ['17:30','電音療癒 第二場','Sound healing, session 2','Yasu · Melody Young','Yasu · Melody Young','Room A'],
-    ['17:30','身體療癒：Body Pages','Somatic session: Body Pages','Tracy Mon · 身體掃描 · 直覺繪畫 · 分享','Tracy Mon · body scan, intuitive drawing, sharing','Room D'],
+    ['16:30','電音療癒 第一場','Sound healing, session 1','Yasu · Melody Young','Yasu · Melody Young','工作坊'],
+    ['16:30','紅酒瑜珈','Wine yoga','Joy · 請穿方便活動的服裝','Joy · Wear comfortable clothes','工作坊'],
+    ['16:30','藝術治療：認識藝術治療 + 療癒工作坊','Art therapy: an introduction, then a healing workshop','Helen 莊雯惠','Helen Chuang','工作坊'],
+    ['16:30','睡眠療癒','Sleep ritual','Becky 貝姬 · 織品、光線、睡前儀式','Becky · fabric, light, bedtime ritual','工作坊'],
+    ['17:30','電音療癒 第二場','Sound healing, session 2','Yasu · Melody Young','Yasu · Melody Young','工作坊'],
+    ['17:30','身體療癒：Body Pages','Somatic session: Body Pages','Tracy Mon · 身體掃描 · 直覺繪畫 · 分享','Tracy Mon · body scan, intuitive drawing, sharing','工作坊'],
     ['18:30','DJ 之夜 · 交流','DJ night: social &amp; live music','現場提供飲品，到 19:30','Drinks served until 19:30','1F',0,1]
   ];
   document.getElementById('tl').innerHTML=S.map(r=>`<div class="row rv${r[6]?' hi':''}${r[7]?' night':''}"><div class="t">${r[0]}</div><div class="w">${bi(r[1],r[2])}${r[3]?`<span>${bi(r[3],r[4])}</span>`:''}</div><div class="r">${r[5]}</div></div>`).join('');
