@@ -36,8 +36,8 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr) + env(safe-area-inset-top,0px))}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-tc);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr) + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-tc);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:clip}
 h1,h2,h3,h4,p{margin:0}
 h2,h3{text-wrap:balance}
 p{text-wrap:pretty}
@@ -227,7 +227,7 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
 /* collectible cards: scroll-snap row, tilt + foil on pointer, tap to flip */
 .deck{--cw:min(320px,76vw);display:flex;gap:clamp(1rem,2vw,1.6rem);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:1.4rem calc(50% - var(--cw) / 2) 1.6rem;margin-inline:calc(-1 * var(--gut))}
 .deck::-webkit-scrollbar{display:none}
-.card{flex:none;width:var(--cw);aspect-ratio:300/440;scroll-snap-align:center;position:relative;border:0;padding:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;perspective:1000px;container-type:inline-size;transition:opacity .3s,transform .3s}
+.card{flex:none;width:var(--cw);aspect-ratio:300/440;scroll-snap-align:center;position:relative;overflow:visible;border:0;padding:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;perspective:1000px;container-type:inline-size;transition:opacity .3s,transform .3s}
 .card:not(.on){opacity:.55;transform:scale(.94)}
 .card .tilt{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .2s ease-out}
 .card .flip{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,.7,.2,1)}
@@ -244,7 +244,13 @@ section{padding-block:clamp(3.4rem,7vw,6rem)}
 .card .chips>span{font-weight:700;font-size:4.3cqw;line-height:1.35}
 .card .chips>span:first-child{border-radius:999px;padding:.9cqw 3.2cqw;background:var(--orange)}
 .card .chips>span+span{font-weight:900}
-.card .stk{position:absolute;right:3%;top:36%;width:30%;transform:rotate(10deg);pointer-events:none;z-index:3}
+.card .stk{position:absolute;width:26%;pointer-events:none;z-index:3;filter:drop-shadow(0 6px 10px rgba(20,20,20,.18))}
+.card .stk.s0{left:3%;top:9%;transform:rotate(-14deg);width:22%}
+.card .stk.s1{right:3%;top:9%;transform:rotate(12deg);width:22%}
+.card .stk.s2{left:3%;top:38%;transform:rotate(8deg);width:28%}
+.card .stk.s3{right:3%;top:39%;transform:rotate(-10deg);width:26%}
+.card .stk.s4{left:5%;top:30%;transform:rotate(16deg);width:20%}
+.card .stk.s5{right:4%;top:28%;transform:rotate(-6deg);width:24%}
 /* holo foil: prism stripes + a travelling glare + glitter, no blend modes (iPhone drops them inside 3D cards) */
 @property --fx{syntax:'<percentage>';inherits:true;initial-value:50%}
 @property --gx{syntax:'<percentage>';inherits:true;initial-value:50%}
@@ -434,8 +440,6 @@ a.logo:hover{border-color:var(--ink)}
 .cdbar .cd b{display:block;font-family:var(--f-giant);font-weight:400;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:.95;color:var(--orange);font-variant-numeric:tabular-nums}
 .cdbar .cd span{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;margin-top:.25rem;opacity:.8}
 .cdbar .live{font-family:var(--f-giant);font-weight:400;font-size:1.8rem;color:var(--orange)}
-.ftr .fcd{margin-top:1.6rem;font-weight:700;font-size:1.05rem}
-.ftr .fcd b{font-family:var(--f-giant);font-weight:400;font-size:1.5rem;color:var(--orange);margin:0 .15em}
 @media(max-width:640px){.cdbar{flex-direction:column;align-items:stretch;gap:.9rem}.cdbar .btn{text-align:center}.cdbar .cdt{flex:0 0 auto;flex-direction:column;align-items:flex-start;gap:.5rem}.cdbar .cd{width:100%}.rcpt .hd{flex-direction:column;align-items:flex-start;gap:.3rem}.rcpt .hd b{font-size:1.2rem}}
 
 /* 01 talks: one card, two columns at every width */
@@ -456,6 +460,25 @@ a.logo:hover{border-color:var(--ink)}
 .why .anchor.soft{font-weight:500;color:var(--ink2);font-size:.95rem}
 .rcpt{background:#fff}
 
+.eb2{display:grid;grid-template-columns:minmax(0,1.3fr) auto auto;gap:1rem 2rem;align-items:center;background:var(--ink);color:var(--paper);padding:clamp(1.1rem,2.4vw,1.6rem) clamp(1.1rem,2.6vw,2rem)}
+.eb2 .tag{display:inline-block;font-family:var(--mono);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;background:var(--orange);color:var(--ink);padding:.3rem .6rem;margin-bottom:.6rem}
+.eb2 h3{font-weight:900;font-size:clamp(1.1rem,1.9vw,1.45rem);line-height:1.45}
+.eb2 .cd{display:grid;grid-template-columns:repeat(4,minmax(3.4rem,1fr));gap:.35rem;text-align:center}
+.eb2 .cd div{background:rgba(243,239,230,.08);padding:.5rem .3rem .45rem;border-radius:4px}
+.eb2 .cd b{display:block;font-family:var(--f-giant);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:.95;color:var(--orange);font-variant-numeric:tabular-nums}
+.eb2 .cd span{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;margin-top:.25rem;opacity:.8}
+.eb2 .btn{padding:1rem 2rem;font-size:1.1rem;white-space:nowrap}
+.eb2.over .cd{display:none}
+@media(max-width:900px){.eb2{grid-template-columns:1fr;gap:.9rem}.eb2 .cd{width:100%}.eb2 .btn{text-align:center}}
+.mbar{display:flex}
+.mbar .mt{display:flex;align-items:baseline;gap:.6rem;min-width:0}
+.mbar .mt{flex-direction:column;align-items:flex-start;gap:0}
+.mbar .mtl{font-weight:700;font-size:.8rem;white-space:nowrap;opacity:.85}
+.mbar .mt b{font-variant-numeric:tabular-nums;letter-spacing:.03em;font-size:1.3rem;line-height:1.1;white-space:nowrap}
+.mbar .mt b small{font-size:.7em;font-weight:700;margin-left:.1em}
+@media(min-width:901px){.mbar .mt{flex-direction:row;align-items:baseline;gap:.7rem}.mbar .mtl{font-size:.95rem;opacity:1}}
+@media(min-width:901px){.mbar{left:auto;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,32px);border-radius:999px;padding:.6rem .6rem .6rem 1.3rem;gap:1.2rem;box-shadow:0 12px 36px rgba(20,20,20,.28)}.mbar .btn{padding:.7rem 1.3rem}}
+
 /* night dose: dimmer + viz */
 .nd{--dim:.8;background:color-mix(in srgb,#100C1E calc(var(--dim)*100%),#F3EFE6);color:color-mix(in srgb,#F3EFE6 calc(var(--dim)*100%),#141414);transition:background .25s,color .25s}
 .nd::before{opacity:var(--dim)}
@@ -473,13 +496,16 @@ a.logo:hover{border-color:var(--ink)}
 .mu .ph::after{opacity:var(--dim)}
 .mu .role{color:var(--orange)}
 @media(max-width:900px){
-  .band{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:.8rem;padding-bottom:.6rem;margin-inline:calc(-1*var(--gut));padding-inline:var(--gut);scrollbar-width:none}
-  .band::-webkit-scrollbar{display:none}
-  .mu{flex:0 0 min(62vw,320px);scroll-snap-align:start}
-  .mu .ph{aspect-ratio:4/4.6}
+  .band{grid-template-columns:1fr;gap:.9rem}
+  .mu{display:grid;grid-template-columns:38% minmax(0,1fr);align-items:stretch}
+  .mu .ph{aspect-ratio:auto;height:100%;min-height:150px}
+  .mu .bd{padding:.9rem 1rem 1rem;gap:.35rem;justify-content:center}
+  .mu h3{font-size:1.5rem}
+  .mu h3 small{font-size:.85rem;margin-top:.2rem}
+  .mu p{font-size:.92rem;line-height:1.55}
+  .mu .ph img.nini,.mu:hover .ph img.nini{transform:none}
   .nd .dim{margin-left:0;width:100%}
 }
-@media(max-width:480px){.mu{flex-basis:74vw}}
 
 .nd .orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:calc(var(--dim)*.65);mix-blend-mode:screen;pointer-events:none;animation:drift 22s ease-in-out infinite alternate}
 .nd .orb.a{width:48vw;height:48vw;max-width:720px;max-height:720px;background:#7D5CFF;left:-12%;top:-18%}
@@ -491,7 +517,14 @@ a.logo:hover{border-color:var(--ink)}
 .nd .jam{display:inline-flex;align-items:center;gap:.6rem;border:1.5px solid var(--orange);border-radius:999px;padding:.55rem 1.1rem;font-weight:700;font-size:1rem;color:inherit;line-height:1.4}
 .nd .jam::before{content:"";width:.6rem;height:.6rem;border-radius:50%;background:var(--orange);box-shadow:0 0 0 0 rgba(255,90,31,.6);animation:pulse 2.4s ease-out infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,90,31,.6)}100%{box-shadow:0 0 0 14px rgba(255,90,31,0)}}
-.mu .ph img{transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.mu .ph img{transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.mu.rv{transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity 1s ease}
+.mu.rv.pre{opacity:0;transform:translateY(40px)}
+.mu.rv.pre .ph img{transform:scale(1.12)}
+.band .mu:nth-child(2){transition-delay:.12s}.band .mu:nth-child(3){transition-delay:.24s}.band .mu:nth-child(4){transition-delay:.36s}
+.nd .sec-h h2 .en{background:linear-gradient(90deg,var(--paper),var(--orange) 55%,var(--paper));background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 7s linear infinite}
+@keyframes shimmer{to{background-position:-220% 0}}
+@media(prefers-reduced-motion:reduce){.nd .sec-h h2 .en{animation:none;color:inherit;background:none}}
 .mu:hover .ph img{transform:scale(1.05)}
 .mu .ph img.nini{transform:scale(1.22);transform-origin:50% 14%}
 .mu:hover .ph img.nini{transform:scale(1.27)}
@@ -505,10 +538,10 @@ a.logo:hover{border-color:var(--ink)}
 .sp-h .en{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
 .sp-logos{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem clamp(1rem,2.2vw,1.8rem);flex:1;min-width:0}
 .sp-logos>*{display:inline-flex;align-items:center;color:inherit;text-decoration:none}
-.sp-logos img{height:26px;width:auto;max-width:112px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:filter .2s,opacity .2s}
+.sp-logos img{height:28px;width:auto;max-width:120px;object-fit:contain;transition:transform .2s}
 .sp-logos img.sq{width:26px;border-radius:6px}
-.sp-logos a:hover img{filter:none;opacity:1}
-.sp-logos .wm{font-weight:900;letter-spacing:.12em;font-size:.92rem;opacity:.7}
+.sp-logos a:hover img{transform:translateY(-2px)}
+.sp-logos .wm{font-weight:900;letter-spacing:.12em;font-size:.92rem}
 .sp-fine{margin-top:.9rem;font-size:.9rem;color:var(--ink2);display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .6rem;line-height:1.6}
 .sp-fine .mail{border-color:var(--ink2);color:var(--ink);padding:.2rem .3rem .2rem .7rem;font-size:.86rem}
 .sp-fine .mail button{background:var(--ink);color:var(--paper);padding:.15rem .6rem;font-size:.78rem}
@@ -692,11 +725,11 @@ a.logo:hover{border-color:var(--ink)}
     </div>
     <div class="concept rv">
       <p><span class="zh"><span class="k">四個人，沒有歌單。</span><span class="k">DJ 鋪地板，笛子和人聲飄上來，</span><span class="k">鋼琴和小提琴把古典帶進來，</span><span class="k">再融進電子裡。</span><span class="k"><strong>他們不表演，他們即興。</strong></span></span><span class="en">Four musicians, no setlist. The DJ lays the floor, flute and voice drift in, piano and violin bring the classical and let it dissolve into electronic. <strong>They don't perform. They jam.</strong></span></p>
-      <div class="side"><p class="note"><span class="zh">每張票都含 · 現場提供飲品，到 19:30</span><span class="en">Included in every ticket · Drinks until 19:30</span></p>
+      <div class="side"><p class="note"><span class="zh">每張票都含 · 有飲品</span><span class="en">Included in every ticket · Drinks available</span></p>
       <p class="jam"><span class="zh">會任何樂器嗎？帶來，一起 Jam。</span><span class="en">Play an instrument? Bring it and jam with us.</span></p></div>
     </div>
     <div class="band">
-      <article class="mu rv"><div class="ph"><img src="music/andrew.jpg" alt="Andrew Tsao" style="object-position:50% 18%" loading="lazy"></div><div class="bd"><span class="role">DJ · Touch Tree 摸樹</span><h3>Andrew Tsao<small>曹明鑫</small></h3><p><span class="zh">在 DJ、抽象繪畫、舞蹈之間移動的藝術家。他的音樂只做一件事：把人和自己、和土地、和彼此重新接回來。</span><span class="en">An artist moving between DJing, abstract painting and dance. His music does one thing: restores the relationship, with self, with land, with each other.</span></p></div></article>
+      <article class="mu rv"><div class="ph"><img src="music/andrew.jpg" alt="Andrew Tsao" style="object-position:50% 18%" loading="lazy"></div><div class="bd"><span class="role">DJ</span><h3>Andrew Tsao<small>曹明鑫</small></h3><p><span class="zh">在 DJ、抽象繪畫、舞蹈之間移動的藝術家。他的音樂只做一件事：把人和自己、和土地、和彼此重新接回來。</span><span class="en">An artist moving between DJing, abstract painting and dance. His music does one thing: restores the relationship, with self, with land, with each other.</span></p></div></article>
       <article class="mu rv"><div class="ph"><img src="music/kylie.jpg" alt="Kylie Tseng" style="object-position:50% 22%" loading="lazy"></div><div class="bd"><span class="role"><span class="zh">笛子 · 人聲</span><span class="en">Flute · Voice</span></span><h3>Kylie Tseng</h3><p><span class="zh">畫漫畫、慢慢蓋房子、研究關係生態的人。聲音對她來說是一種練習，不是演出。</span><span class="en">Comics maker, slow builder, student of relationship ecology. Sound, for her, is a practice, not a show.</span></p></div></article>
       <article class="mu rv"><div class="ph"><img src="music/kevin.jpg" alt="Kevin Ku" style="object-position:45% 30%" loading="lazy"></div><div class="bd"><span class="role"><span class="zh">鋼琴</span><span class="en">Piano</span></span><h3>Kevin Ku<small>顧庭偉</small></h3><p><span class="zh">國北教音樂系鋼琴主修，師事 Nikolai Saratovsky。古典的底子，這一晚放進即興裡。</span><span class="en">Piano major at National Taipei University of Education, a student of Nikolai Saratovsky. Classical training, set loose for one night.</span></p></div></article>
       <article class="mu rv"><div class="ph"><img src="music/nini.jpg" alt="Nini Ku" class="nini" style="object-position:50% 12%" loading="lazy"></div><div class="bd"><span class="role"><span class="zh">小提琴</span><span class="en">Violin</span></span><h3>Nini Ku<small>顧妮恩</small></h3><p><span class="zh">六歲拿起小提琴，現在是師大附中音樂班的學生。全場最年輕的人，拿著最老的樂器，和哥哥一起上台。</span><span class="en">Picked up the violin at six; now in the music programme at HNSH Affiliated High School. The youngest person in the room, holding the oldest instrument, on stage with her brother.</span></p></div></article>
@@ -749,7 +782,7 @@ a.logo:hover{border-color:var(--ink)}
           <li><span class="t">16:00</span><span class="w"><span class="zh">交流</span><span class="en">Break</span><span><span class="zh">飲品、點心，認識同一場的人</span><span class="en">Drinks, snacks, meet the people from your panel</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
           <li><span class="t">16:30</span><span class="w"><span class="zh">藝術治療 或 睡眠療癒</span><span class="en">Art therapy or sleep ritual</span><span><span class="zh">英國註冊藝術心理治療師帶你用畫筆和黏土做一次；或跟 Becky 把臥室變回能休息的地方</span><span class="en">Paint and clay with a UK-registered art psychotherapist, or Becky's bedroom ritual</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
           <li><span class="t">17:30</span><span class="w"><span class="zh">身體療癒 Body Pages</span><span class="en">Body Pages</span><span><span class="zh">Tracy 帶的身體掃描、直覺繪畫、分享</span><span class="en">Tracy's body scan, intuitive drawing and sharing</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
-          <li class="nd-row"><span class="t">18:30</span><span class="w"><span class="zh">Night Dose 音樂場</span><span class="en">Night Dose</span><span><span class="zh">DJ、小提琴、鋼琴、笛子的即興，一杯飲品</span><span class="en">DJ, violin, piano and flute improvising, plus a drink</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
+          <li class="nd-row"><span class="t">18:30</span><span class="w"><span class="zh">Night Dose 音樂場</span><span class="en">Night Dose</span><span><span class="zh">DJ、小提琴、鋼琴、笛子的即興，有飲品</span><span class="en">DJ, violin, piano and flute improvising, with drinks</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
         </ol>
         <div class="tot"><span><span class="zh">Tablet 票</span><span class="en">Tablet ticket</span></span><b><span>NT$</span>599</b></div>
         <a class="btn rbuy" href="https://www.accupass.com/event/2610020512371501376639" target="_blank" rel="noopener"><span class="zh">到 Accupass 購票</span><span class="en">Buy on Accupass</span></a>
@@ -760,14 +793,17 @@ a.logo:hover{border-color:var(--ink)}
         <p class="anchor soft"><span class="zh">加購工作坊的票種（Daily dose、Full course）都已售完，電音療癒和紅酒瑜珈不再加購。</span><span class="en">The add-on tickets (Daily dose, Full course) are sold out; sound healing and wine yoga can no longer be added.</span></p>
       </div>
     </div>
-    <div class="buy cdbar rv">
-      <div class="cdt"><span class="lbl"><span class="zh">距離 11/21 開場</span><span class="en">Doors open in</span></span>
-        <div class="cd" role="timer" aria-live="off" id="cd">
-          <div><b id="cd-d">0</b><span><span class="zh">天</span><span class="en">days</span></span></div>
-          <div><b id="cd-h">00</b><span><span class="zh">時</span><span class="en">hrs</span></span></div>
-          <div><b id="cd-m">00</b><span><span class="zh">分</span><span class="en">min</span></span></div>
-          <div><b id="cd-s">00</b><span><span class="zh">秒</span><span class="en">sec</span></span></div>
-        </div></div>
+    <div class="eb2 rv" id="eb2">
+      <div class="eb2-t">
+        <span class="tag"><span class="zh">早鳥票倒數</span><span class="en">Early bird ends soon</span></span>
+        <h3><span class="zh"><span class="k">早鳥價 NT$599 </span><span class="k">只到 11/12（三）23:59，</span><span class="k">11/13 起調漲。</span></span><span class="en"><span class="k">NT$599 early-bird price ends</span> <span class="k">Wed 12 Nov, 23:59.</span> <span class="k">Prices go up on 13 Nov.</span></span></h3>
+      </div>
+      <div class="cd" role="timer" aria-live="off">
+        <div><b id="cd-d">0</b><span><span class="zh">天</span><span class="en">days</span></span></div>
+        <div><b id="cd-h">00</b><span><span class="zh">時</span><span class="en">hrs</span></span></div>
+        <div><b id="cd-m">00</b><span><span class="zh">分</span><span class="en">min</span></span></div>
+        <div><b id="cd-s">00</b><span><span class="zh">秒</span><span class="en">sec</span></span></div>
+      </div>
       <a class="btn" id="buybtn" href="https://www.accupass.com/event/2610020512371501376639" target="_blank" rel="noopener"><span class="zh">購票 NT$599</span><span class="en">Buy · NT$599</span></a>
     </div>
   </div>
@@ -820,14 +856,13 @@ a.logo:hover{border-color:var(--ink)}
         <a class="lk en" href="https://www.healyou.io/en-us" target="_blank" rel="noopener"><b>Website</b> <span>healyou.io</span></a>
       </div>
     </div>
-    <p class="fcd"><span class="zh">距離 11/21 開場還有 <b id="fcd">—</b></span><span class="en">Doors open in <b id="fcd-en">—</b></span></p>
     <p class="help"><span class="zh">需要即時協助，請撥衛福部安心專線 <b>1925</b>。</span><span class="en">Need help right now in Taiwan? Call the 24-hour helpline on <b>1925</b>.</span></p>
   </div>
 </footer>
 
 <div class="mbar" id="mbar">
-  <div class="mt"><span class="zh">11.21（六）· </span><span class="en">Sat 21 Nov · </span><b>NT$599</b></div>
-  <a class="btn" href="#tickets"><span class="zh">購票</span><span class="en">Tickets</span></a>
+  <div class="mt"><span class="mtl"><span class="zh">早鳥票即將結束</span><span class="en">Early bird ends in</span></span><b id="mcd">—</b></div>
+  <a class="btn" href="#tickets"><span class="zh">購票 NT$599</span><span class="en">Tickets NT$599</span></a>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
@@ -948,7 +983,7 @@ a.logo:hover{border-color:var(--ink)}
       <span class="face front">
         <span class="top"><span>No.${NO(i+1)} / ${SP.length}</span><span>MHF 2026</span></span>
         <span class="ph" style="--ds:${p.ds};--dh:${p.dh}"><img src="${img(p)}" alt="" style="object-position:${p.pos}"></span>
-        <img class="stk" src="chars/${p.ch}.png" alt="">
+        <img class="stk s${(i*5+2)%6}" src="chars/${p.ch}.png" alt="">
         <span class="bd">
           <span class="cn">${p.n}</span>
           ${p.z?`<span class="cz zh">${p.z}</span>`:''}
@@ -1045,18 +1080,21 @@ a.logo:hover{border-color:var(--ink)}
     if('IntersectionObserver' in window) new IntersectionObserver(es=>{run=es[0].isIntersecting;},{rootMargin:'120px'}).observe(sec); else run=true;
   })();
 
-  // countdown to doors: 2026-11-21 14:30 Taipei (= 06:30Z)
+  // early-bird countdown: ends 2026-11-12 23:59:59 Taipei (= 2026-11-12T15:59:59Z)
   (function(){
-    const END=Date.UTC(2026,10,21,6,30,0);
-    const el={d:document.getElementById('cd-d'),h:document.getElementById('cd-h'),m:document.getElementById('cd-m'),s:document.getElementById('cd-s'),f:document.getElementById('fcd'),fe:document.getElementById('fcd-en')};
+    const END=Date.UTC(2026,10,12,15,59,59);
+    const el={d:document.getElementById('cd-d'),h:document.getElementById('cd-h'),m:document.getElementById('cd-m'),s:document.getElementById('cd-s'),mc:document.getElementById('mcd'),box:document.getElementById('eb2')};
     const pad=n=>String(n).padStart(2,'0');
     function tick(){
       const left=END-Date.now();
-      if(left<=0){ if(el.f){el.f.textContent='開場了';} if(el.fe){el.fe.textContent='now';} const bar=document.querySelector('.cdbar .cdt'); if(bar) bar.innerHTML=bi('<b class="live">今天開場</b>','<b class="live">Doors are open</b>'); return; }
+      if(left<=0){
+        if(el.box){el.box.classList.add('over'); el.box.querySelector('h3').innerHTML=bi('早鳥票已結束，現在是一般票價。','Early-bird pricing has ended.');}
+        if(el.mc){el.mc.textContent=''; const l=document.querySelector('.mbar .mtl'); if(l) l.innerHTML=bi('11.21（六）· NT$599','Sat 21 Nov · NT$599');}
+        return;
+      }
       const d=Math.floor(left/864e5), hh=Math.floor(left%864e5/36e5), mm=Math.floor(left%36e5/6e4), ss=Math.floor(left%6e4/1e3);
       if(el.d){el.d.textContent=d; el.h.textContent=pad(hh); el.m.textContent=pad(mm); el.s.textContent=pad(ss);}
-      if(el.f) el.f.textContent=`${d} 天 ${pad(hh)} 小時`;
-      if(el.fe) el.fe.textContent=`${d} days ${pad(hh)} hours`;
+      if(el.mc) el.mc.innerHTML=(d>0?`${d}<small>${bi('天','d')}</small> `:'')+`${pad(hh)}:${pad(mm)}:${pad(ss)}`;
       setTimeout(tick,1000-(Date.now()%1000));
     }
     tick();
@@ -1075,7 +1113,7 @@ a.logo:hover{border-color:var(--ink)}
     ['16:30','睡眠療癒','Sleep ritual','Becky 貝姬 · 織品、光線、睡前儀式','Becky · fabric, light, bedtime ritual','工作坊'],
     ['17:30','電音療癒 第二場','Sound healing, session 2','Yasu · Melody Young','Yasu · Melody Young','工作坊'],
     ['17:30','身體療癒：Body Pages','Somatic session: Body Pages','Tracy Mon · 身體掃描 · 直覺繪畫 · 分享','Tracy Mon · body scan, intuitive drawing, sharing','工作坊'],
-    ['18:30','Night Dose 音樂場','Night Dose: live music','DJ Touch Tree · Kylie Tseng · Kevin Ku · Nini Ku · 現場提供飲品，到 19:30','DJ Touch Tree · Kylie Tseng · Kevin Ku · Nini Ku · Drinks until 19:30','1F',0,1]
+    ['18:30','Night Dose 音樂場','Night Dose: live music','Andrew Tsao · Kylie Tseng · Kevin Ku · Nini Ku · 有飲品','Andrew Tsao · Kylie Tseng · Kevin Ku · Nini Ku · Drinks available','1F',0,1]
   ];
   document.getElementById('tl').innerHTML=S.map(r=>`<div class="row rv${r[6]?' hi':''}${r[7]?' night':''}"><div class="t">${r[0]}</div><div class="w">${bi(r[1],r[2])}${r[3]?`<span>${bi(r[3],r[4])}</span>`:''}</div><div class="r">${r[5]}</div></div>`).join('');
 
