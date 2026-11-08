@@ -479,6 +479,34 @@ a.logo:hover{border-color:var(--ink)}
 @media(min-width:901px){.mbar .mt{flex-direction:row;align-items:baseline;gap:.7rem}.mbar .mtl{font-size:.95rem;opacity:1}}
 @media(min-width:901px){.mbar{left:auto;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,32px);border-radius:999px;padding:.6rem .6rem .6rem 1.3rem;gap:1.2rem;box-shadow:0 12px 36px rgba(20,20,20,.28)}.mbar .btn{padding:.7rem 1.3rem}}
 
+.rcpt .tot .tlab{display:flex;flex-direction:column;gap:.1rem}
+.rcpt .tot .tlab small{font-weight:700;font-size:.82rem;color:var(--orange)}
+.rcpt .ebrow{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.3rem 1rem;margin-top:.6rem;padding:.6rem .8rem;background:var(--ink);color:var(--paper)}
+.rcpt .ebrow .ebl{font-weight:700;font-size:.9rem}
+.rcpt .ebrow .ebcd{font-family:var(--f-giant);font-weight:400;font-size:1.5rem;line-height:1;color:var(--orange);font-variant-numeric:tabular-nums;letter-spacing:.03em}
+.rcpt .ebrow .ebcd small{font-family:var(--f-tc);font-weight:700;font-size:.6em;margin-left:.1em}
+.rcpt .rbuy{margin-top:.8rem}
+.pays{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem;justify-content:center}
+.pay{font-weight:900;font-size:.78rem;letter-spacing:.04em;border:1.5px solid var(--ink);border-radius:6px;padding:.2rem .6rem;line-height:1.3}
+.pay.lp{color:#06C755;border-color:#06C755}
+.pay.ap::before{content:"";font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;margin-right:.1em}
+.vc{margin-top:.9rem;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .6rem;padding-top:.8rem;border-top:1px dashed var(--line)}
+.vc label{font-weight:900;font-size:.92rem}
+.vc input{font:inherit;font-weight:700;font-size:.95rem;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:.4rem .9rem;width:9.5rem;min-width:0;text-transform:uppercase}
+.vc input:focus{outline:3px solid var(--orange);outline-offset:1px}
+.vc .btn.sm{padding:.5rem 1rem;font-size:.9rem}
+.vc .msg{font-weight:700;font-size:.9rem}
+.vc .msg.ok{color:#0F4D2C}
+.vc .msg.bad{color:#B5134F}
+.tiers{display:flex;flex-direction:column;gap:.6rem;margin-top:.4rem}
+.tier{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;gap:.3rem 1rem;align-items:baseline;border:2px solid var(--ink);padding:.85rem 1rem;opacity:.5}
+.tier .tn{font-family:var(--f-giant);text-transform:uppercase;font-size:1.3rem;line-height:1}
+.tier .tp{font-family:var(--f-giant);font-size:1.3rem;line-height:1}
+.tier .ti{font-size:.9rem;font-weight:500;color:var(--ink2)}
+.tier .so{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.25rem .55rem;white-space:nowrap}
+@media(max-width:640px){.tier{grid-template-columns:auto auto minmax(0,1fr)}.tier .ti{grid-column:1/-1}}
+.tickets .wrap{padding-bottom:clamp(.5rem,1vw,1rem)}
+
 /* night dose: dimmer + viz */
 .nd{--dim:.8;background:color-mix(in srgb,#100C1E calc(var(--dim)*100%),#F3EFE6);color:color-mix(in srgb,#F3EFE6 calc(var(--dim)*100%),#141414);transition:background .25s,color .25s}
 .nd::before{opacity:var(--dim)}
@@ -638,7 +666,7 @@ a.logo:hover{border-color:var(--ink)}
       </dl>
       <div class="cta-row">
         <a class="btn" href="#tickets"><span class="zh">購票</span><span class="en">Get tickets</span></a>
-        <span class="from"><span class="zh">NT$599 · 只剩 Tablet</span><span class="en">NT$599 · Tablet only</span></span>
+        <span class="from"><span class="zh">早鳥價 NT$599</span><span class="en">Early bird NT$599</span></span>
       </div>
     </div>
   </div>
@@ -738,7 +766,7 @@ a.logo:hover{border-color:var(--ink)}
 </section>
 
 <!-- 3 VENUE -->
-<section class="venue" id="venue" aria-labelledby="h-v" style="padding-top:0">
+<section class="venue" id="venue" aria-labelledby="h-v">
   <div class="wrap">
     <div class="sec-h rv"><h2 id="h-v"><span class="zh">活動地點</span><span class="en">Venue</span></h2></div>
     <div class="grid">
@@ -784,27 +812,20 @@ a.logo:hover{border-color:var(--ink)}
           <li><span class="t">17:30</span><span class="w"><span class="zh">身體療癒 Body Pages</span><span class="en">Body Pages</span><span><span class="zh">Tracy 帶的身體掃描、直覺繪畫、分享</span><span class="en">Tracy's body scan, intuitive drawing and sharing</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
           <li class="nd-row"><span class="t">18:30</span><span class="w"><span class="zh">Night Dose 音樂場</span><span class="en">Night Dose</span><span><span class="zh">DJ、小提琴、鋼琴、笛子的即興，有飲品</span><span class="en">DJ, violin, piano and flute improvising, with drinks</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
         </ol>
-        <div class="tot"><span><span class="zh">Tablet 票</span><span class="en">Tablet ticket</span></span><b><span>NT$</span>599</b></div>
-        <a class="btn rbuy" href="https://www.accupass.com/event/2610020512371501376639" target="_blank" rel="noopener"><span class="zh">到 Accupass 購票</span><span class="en">Buy on Accupass</span></a>
+        <div class="tot"><span class="tlab"><span class="zh">Tablet 票 · 早鳥價</span><span class="en">Tablet · early bird</span><small id="vcnote"></small></span><b id="rprice"><span>NT$</span>599</b></div>
+        <div class="ebrow"><span class="ebl"><span class="zh">早鳥價只到 11/12（三）23:59</span><span class="en">Early-bird price ends Wed 12 Nov, 23:59</span></span><b class="ebcd" id="rcd">—</b></div>
+        <a class="btn rbuy" id="buybtn" href="https://pl.sl-pay.com/XPBHtT2p" target="_blank" rel="noopener"><span class="zh">立即購票</span><span class="en">Buy now</span></a>
+        <div class="pays" aria-label="Payment methods"><span class="pay lp">LINE Pay</span><span class="pay ap">Apple Pay</span><span class="pay cc"><span class="zh">信用卡</span><span class="en">Card</span></span></div>
+        <form class="vc" id="vc" autocomplete="off"><label for="vcin"><span class="zh">優惠碼</span><span class="en">Voucher</span></label><input id="vcin" name="code" type="text" maxlength="32" spellcheck="false" autocapitalize="characters"><button type="submit" class="btn ink sm"><span class="zh">套用</span><span class="en">Apply</span></button><span class="msg" id="vcmsg" role="status" aria-live="polite"></span></form>
       </div>
       <div class="why">
         <p class="big"><span class="zh"><span class="k">NT$599，</span><span class="k">從下午三點到晚上七點半。</span><em><span class="k">四個半小時，</span><span class="k">四種體驗。</span></em></span><span class="en"><span class="k">NT$599, from 3 pm to 7:30 pm.</span> <em><span class="k">Four and a half hours,</span> <span class="k">four experiences.</span></em></span></p>
         <p class="anchor"><span class="zh">一堂工作坊的價格，拿到一整個下午。</span><span class="en">The price of one workshop, for the whole afternoon.</span></p>
-        <p class="anchor soft"><span class="zh">加購工作坊的票種（Daily dose、Full course）都已售完，電音療癒和紅酒瑜珈不再加購。</span><span class="en">The add-on tickets (Daily dose, Full course) are sold out; sound healing and wine yoga can no longer be added.</span></p>
+        <div class="tiers" aria-label="Sold-out tickets">
+          <div class="tier"><span class="tn">Daily dose</span><span class="tp">NT$999</span><span class="ti"><span class="zh">Tablet ＋ 一個工作坊（電音療癒或紅酒瑜珈）</span><span class="en">Tablet + one workshop (sound healing or wine yoga)</span></span><span class="so"><span class="zh">已售罄</span><span class="en">Sold out</span></span></div>
+          <div class="tier"><span class="tn">Full course</span><span class="tp">NT$1,299</span><span class="ti"><span class="zh">Tablet ＋ 紅酒瑜珈 ＋ 電音療癒第二場</span><span class="en">Tablet + wine yoga + sound healing 2</span></span><span class="so"><span class="zh">已售罄</span><span class="en">Sold out</span></span></div>
+        </div>
       </div>
-    </div>
-    <div class="eb2 rv" id="eb2">
-      <div class="eb2-t">
-        <span class="tag"><span class="zh">早鳥票倒數</span><span class="en">Early bird ends soon</span></span>
-        <h3><span class="zh"><span class="k">早鳥價 NT$599 </span><span class="k">只到 11/12（三）23:59，</span><span class="k">11/13 起調漲。</span></span><span class="en"><span class="k">NT$599 early-bird price ends</span> <span class="k">Wed 12 Nov, 23:59.</span> <span class="k">Prices go up on 13 Nov.</span></span></h3>
-      </div>
-      <div class="cd" role="timer" aria-live="off">
-        <div><b id="cd-d">0</b><span><span class="zh">天</span><span class="en">days</span></span></div>
-        <div><b id="cd-h">00</b><span><span class="zh">時</span><span class="en">hrs</span></span></div>
-        <div><b id="cd-m">00</b><span><span class="zh">分</span><span class="en">min</span></span></div>
-        <div><b id="cd-s">00</b><span><span class="zh">秒</span><span class="en">sec</span></span></div>
-      </div>
-      <a class="btn" id="buybtn" href="https://www.accupass.com/event/2610020512371501376639" target="_blank" rel="noopener"><span class="zh">購票 NT$599</span><span class="en">Buy · NT$599</span></a>
     </div>
   </div>
 </section>
@@ -1083,21 +1104,33 @@ a.logo:hover{border-color:var(--ink)}
   // early-bird countdown: ends 2026-11-12 23:59:59 Taipei (= 2026-11-12T15:59:59Z)
   (function(){
     const END=Date.UTC(2026,10,12,15,59,59);
-    const el={d:document.getElementById('cd-d'),h:document.getElementById('cd-h'),m:document.getElementById('cd-m'),s:document.getElementById('cd-s'),mc:document.getElementById('mcd'),box:document.getElementById('eb2')};
+    const el={mc:document.getElementById('mcd'),rc:document.getElementById('rcd'),row:document.querySelector('.ebrow')};
     const pad=n=>String(n).padStart(2,'0');
     function tick(){
       const left=END-Date.now();
       if(left<=0){
-        if(el.box){el.box.classList.add('over'); el.box.querySelector('h3').innerHTML=bi('早鳥票已結束，現在是一般票價。','Early-bird pricing has ended.');}
+        if(el.row) el.row.innerHTML=bi('早鳥票已結束。','Early-bird pricing has ended.');
         if(el.mc){el.mc.textContent=''; const l=document.querySelector('.mbar .mtl'); if(l) l.innerHTML=bi('11.21（六）· NT$599','Sat 21 Nov · NT$599');}
         return;
       }
       const d=Math.floor(left/864e5), hh=Math.floor(left%864e5/36e5), mm=Math.floor(left%36e5/6e4), ss=Math.floor(left%6e4/1e3);
-      if(el.d){el.d.textContent=d; el.h.textContent=pad(hh); el.m.textContent=pad(mm); el.s.textContent=pad(ss);}
+      const txt=(d>0?`${d}<small>${bi('天','d')}</small> `:'')+`${pad(hh)}:${pad(mm)}:${pad(ss)}`;
+      if(el.rc) el.rc.innerHTML=txt;
       if(el.mc) el.mc.innerHTML=(d>0?`${d}<small>${bi('天','d')}</small> `:'')+`${pad(hh)}:${pad(mm)}:${pad(ss)}`;
       setTimeout(tick,1000-(Date.now()%1000));
     }
     tick();
+  })();
+
+  // voucher: NT$299 off, discounted SHOPLINE link
+  (function(){
+    const PAY='https://pl.sl-pay.com/XPBHtT2p', PAY_VC='https://pl.sl-pay.com/fPjbFNWw', OFF=299, CODES=['lydia','harry'];
+    const f=document.getElementById('vc'); if(!f) return;
+    const inp=document.getElementById('vcin'), msg=document.getElementById('vcmsg'), btn=document.getElementById('buybtn'), pr=document.getElementById('rprice'), note=document.getElementById('vcnote');
+    f.addEventListener('submit',e=>{e.preventDefault(); const c=inp.value.trim().toLowerCase();
+      if(CODES.includes(c)){btn.href=PAY_VC; pr.innerHTML='<span>NT$</span>'+(599-OFF); note.innerHTML=bi('已套用優惠碼，折 NT$299','Voucher applied: NT$299 off'); msg.className='msg ok'; msg.innerHTML=bi('優惠碼已套用','Applied');}
+      else{btn.href=PAY; pr.innerHTML='<span>NT$</span>599'; note.textContent=''; msg.className='msg bad'; msg.innerHTML=bi('找不到這個優惠碼','Code not recognised');}
+    });
   })();
 
   // schedule
