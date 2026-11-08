@@ -510,6 +510,41 @@ a.logo:hover{border-color:var(--ink)}
 @media(max-width:640px){.tier{grid-template-columns:auto auto minmax(0,1fr)}.tier .ti{grid-column:1/-1}}
 .tickets .wrap{padding-bottom:clamp(.5rem,1vw,1rem)}
 
+#buy{scroll-margin-top:calc(var(--hdr) + 12px)}
+.rcpt{padding:clamp(.9rem,1.8vw,1.3rem) clamp(1rem,2.2vw,1.6rem)}
+.rcpt .hd{padding-bottom:.55rem;margin-bottom:.1rem}
+.rcpt li{padding:.5rem 0;gap:.1rem .8rem}
+.rcpt li .w{font-size:1rem;line-height:1.35}
+.rcpt li .w>span:not(.zh):not(.en){font-size:.88rem;line-height:1.4}
+.rcpt .tot{margin-top:.4rem;padding-top:.6rem}
+.rcpt .tot b{font-size:clamp(2rem,3.6vw,2.8rem)}
+.rcpt .ebrow{margin-top:.5rem;padding:.5rem .8rem}
+.rcpt .rbuy{margin-top:.6rem;padding:.9rem 1.2rem}
+.pays{margin-top:.55rem}
+.vc{margin-top:.7rem;padding-top:.6rem}
+@media(max-width:640px){
+  .rcpt li{grid-template-columns:3.4rem minmax(0,1fr) auto;align-items:center;padding:.45rem 0}
+  .rcpt li .t{font-size:1.15rem}
+  .rcpt li .w{font-size:.98rem}
+  .rcpt li .w>span:not(.zh):not(.en){display:none}
+  .rcpt li .ok{grid-column:auto;justify-self:end;font-size:.62rem;padding:.18rem .4rem}
+  .rcpt .hd{flex-direction:row;align-items:baseline;gap:.6rem}
+  .rcpt .hd b{font-size:1.1rem}
+  .rcpt .hd>span{display:none}
+  .tickets .sec-h{margin-bottom:.7rem}
+  .tickets .sec-h p{display:none}
+  .tickets .sec-h h2 .zh{font-size:1.9rem}
+  .tickets .sec-h h2 .en{font-size:2.6rem}
+  .tickets{padding-block:1.6rem clamp(3.4rem,7vw,6rem)}
+  .rcpt .tot{margin-top:.25rem;padding-top:.45rem}
+  .rcpt .tot b{font-size:1.9rem}
+  .rcpt .ebrow{margin-top:.4rem;padding:.4rem .7rem}
+  .rcpt .ebrow .ebl{font-size:.82rem}
+  .rcpt .ebrow .ebcd{font-size:1.3rem}
+  .rcpt .rbuy{margin-top:.5rem;padding:.85rem 1rem}
+  .rcpt li{padding:.38rem 0}
+}
+
 /* night dose: dimmer + viz */
 .nd{--dim:.8;background:color-mix(in srgb,#100C1E calc(var(--dim)*100%),#F3EFE6);color:color-mix(in srgb,#F3EFE6 calc(var(--dim)*100%),#141414);transition:background .25s,color .25s}
 .nd::before{opacity:var(--dim)}
@@ -641,7 +676,7 @@ a.logo:hover{border-color:var(--ink)}
     </nav>
     <div class="tools">
       <div class="lang" role="group" aria-label="Language"><button type="button" data-set="zh" aria-pressed="true">中</button><button type="button" data-set="en" aria-pressed="false">EN</button></div>
-      <a class="btn sm" href="#tickets"><span class="zh">購票</span><span class="en">Tickets</span></a>
+      <a class="btn sm" href="#buy"><span class="zh">購票</span><span class="en">Tickets</span></a>
     </div>
   </div>
 </header>
@@ -668,7 +703,7 @@ a.logo:hover{border-color:var(--ink)}
         <dt><span class="zh">地點</span><span class="en">Where</span></dt><dd><span class="zh">義居雅舍 · 捷運西湖站</span><span class="en">italife, near MRT Xihu</span></dd>
       </dl>
       <div class="cta-row">
-        <a class="btn" href="#tickets"><span class="zh">購票</span><span class="en">Get tickets</span></a>
+        <a class="btn" href="#buy"><span class="zh">購票</span><span class="en">Get tickets</span></a>
         <span class="from"><span class="zh">早鳥價 NT$599</span><span class="en">Early bird NT$599</span></span>
       </div>
     </div>
@@ -805,7 +840,7 @@ a.logo:hover{border-color:var(--ink)}
     <div class="sec-h rv"><h2 id="h-t"><span class="zh">選一種劑量</span><span class="en">Tickets</span></h2>
       <p><span class="zh">加購工作坊的票種都賣完了，現在只剩 Tablet。一張 599，整個下午，從對談到 Night Dose。</span><span class="en">The workshop add-on tickets are sold out. What's left is Tablet: NT$599 for the whole afternoon, panel to Night Dose.</span></p>
     </div>
-    <div class="rx rv">
+    <div class="rx rv" id="buy">
       <div class="rcpt" aria-label="What NT$599 includes">
         <div class="hd"><b><span class="zh">一張票，你的下午</span><span class="en">One ticket, your afternoon</span></b><span>TABLET · <span class="zh">唯一在售票種</span><span class="en">the only ticket left</span></span></div>
         <ol>
@@ -886,7 +921,7 @@ a.logo:hover{border-color:var(--ink)}
 
 <div class="mbar" id="mbar">
   <div class="mt"><span class="mtl"><span class="zh">早鳥票即將結束</span><span class="en">Early bird ends in</span></span><b id="mcd">—</b></div>
-  <a class="btn" href="#tickets"><span class="zh">購票 NT$599</span><span class="en">Tickets NT$599</span></a>
+  <a class="btn" href="#buy"><span class="zh">購票 NT$599</span><span class="en">Tickets NT$599</span></a>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
