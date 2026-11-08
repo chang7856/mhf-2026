@@ -315,6 +315,10 @@ a.logo:hover{border-color:var(--ink)}
 .tk{position:relative;background:var(--paper);border:2px solid var(--ink);padding:1.5rem 1.4rem 1.4rem;cursor:pointer;display:flex;flex-direction:column;gap:.8rem;text-align:left;transition:transform .2s, background .2s, color .2s}
 .tk:hover{transform:translateY(-4px)}
 .tk[aria-checked="true"]{background:var(--ink);color:var(--paper)}
+.tk.sold{cursor:default;opacity:.55}
+.tk.sold:hover{transform:none}
+.tk.sold .pr,.tk.sold .tn{text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:var(--orange)}
+.tk .soldout{position:absolute;right:1rem;top:1rem;background:var(--orange);color:var(--paper);font-family:var(--mono);font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .6rem;transform:rotate(4deg)}
 .tk .tn{font-family:var(--f-giant);text-transform:uppercase;font-size:clamp(2.2rem,3.6vw,3rem);line-height:.9}
 .tk .pr{font-family:var(--f-giant);font-size:clamp(2.8rem,5vw,3.8rem);line-height:.9;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
 .tk .pr span{font-size:.4em;margin-right:.15em;vertical-align:.9em}
@@ -824,16 +828,16 @@ a.logo:hover{border-color:var(--ink)}
 
   // tickets
   const T=[
-    {id:'tablet',n:'Tablet',p:599,inc:[['一場對談（兩場擇一）','One panel (your choice)'],['藝術治療','Art therapy'],['睡眠美學療癒','Sleep &amp; space healing'],['音樂之夜 · 交流','live music night: social &amp; live music']]},
+    {id:'tablet',n:'Tablet',p:599,inc:[['一場對談（兩場擇一）','One panel (your choice)'],['藝術治療','Art therapy'],['睡眠美學療癒','Sleep &amp; space healing'],['音樂之夜 · 交流','Live music night: social &amp; live music']]},
     {id:'daily',n:'Daily dose',p:999,inc:[['Tablet 全部內容','Everything in Tablet'],['再加一個工作坊','Plus one workshop']],opts:[
       ['s1','電音療癒 16:30','Sound healing 16:30','限量 20 張','20 places'],['s2','電音療癒 17:30','Sound healing 17:30','限量 20 張','20 places'],['y','紅酒瑜珈 16:30','Wine yoga 16:30','限量 10 張','10 places']]},
-    {id:'full',n:'Full course',p:1299,inc:[['Tablet 全部內容','Everything in Tablet'],['紅酒瑜珈 16:30','Wine yoga 16:30'],['電音療癒 17:30','Sound healing 17:30'],['限量 10 張','10 places']]}
+    {id:'full',n:'Full course',p:1299,sold:1,inc:[['Tablet 全部內容','Everything in Tablet'],['紅酒瑜珈 16:30','Wine yoga 16:30'],['電音療癒 17:30','Sound healing 17:30'],['限量 10 張','10 places']]}
   ];
   let sel='tablet', opt='s1';
   const tix=document.getElementById('tix');
   function drawT(){
-    tix.innerHTML=T.map(t=>`<div class="tk" role="radio" tabindex="0" aria-checked="${t.id===sel}" data-t="${t.id}">
-      <span class="radio" aria-hidden="true"></span>
+    tix.innerHTML=T.map(t=>`<div class="tk${t.sold?' sold':''}" role="radio" tabindex="${t.sold?-1:0}" aria-checked="${t.id===sel}" aria-disabled="${!!t.sold}" data-t="${t.id}">
+      ${t.sold?`<span class="soldout">${bi('售罄','Sold out')}</span>`:'<span class="radio" aria-hidden="true"></span>'}
       <div class="tn">${t.n}</div>
       <div class="pr"><span>NT$</span>${t.p.toLocaleString('en-US')}</div>
       <ul>${t.inc.map(x=>`<li>${bi(x[0],x[1])}</li>`).join('')}</ul>
@@ -844,8 +848,8 @@ a.logo:hover{border-color:var(--ink)}
     document.getElementById('sum').innerHTML=label+`<b>NT$${t.p.toLocaleString('en-US')}</b>`;
     document.getElementById('buybtn').href=ACCUPASS;
   }
-  tix.addEventListener('click',e=>{const o=e.target.closest('.opt'); const c=e.target.closest('.tk'); if(!c) return; sel=c.dataset.t; if(o) opt=o.dataset.o; drawT();});
-  tix.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('tk')){e.preventDefault();sel=e.target.dataset.t;drawT();tix.querySelector(`[data-t="${sel}"]`).focus();}});
+  tix.addEventListener('click',e=>{const o=e.target.closest('.opt'); const c=e.target.closest('.tk'); if(!c||c.classList.contains('sold')) return; sel=c.dataset.t; if(o) opt=o.dataset.o; drawT();});
+  tix.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('tk')&&!e.target.classList.contains('sold')){e.preventDefault();sel=e.target.dataset.t;drawT();tix.querySelector(`[data-t="${sel}"]`).focus();}});
   drawT();
 
   // schedule
@@ -861,7 +865,7 @@ a.logo:hover{border-color:var(--ink)}
     ['16:30','睡眠療癒','Sleep ritual','Becky 貝姬 · 織品、光線、睡前儀式','Becky · fabric, light, bedtime ritual','工作坊'],
     ['17:30','電音療癒 第二場','Sound healing, session 2','Yasu · Melody Young','Yasu · Melody Young','工作坊'],
     ['17:30','身體療癒：Body Pages','Somatic session: Body Pages','Tracy Mon · 身體掃描 · 直覺繪畫 · 分享','Tracy Mon · body scan, intuitive drawing, sharing','工作坊'],
-    ['18:30','音樂之夜 · 交流','live music night: social &amp; live music','現場提供飲品，到 19:30','Drinks served until 19:30','1F',0,1]
+    ['18:30','音樂之夜 · 交流','Live music night: social &amp; live music','現場提供飲品，到 19:30','Drinks served until 19:30','1F',0,1]
   ];
   document.getElementById('tl').innerHTML=S.map(r=>`<div class="row rv${r[6]?' hi':''}${r[7]?' night':''}"><div class="t">${r[0]}</div><div class="w">${bi(r[1],r[2])}${r[3]?`<span>${bi(r[3],r[4])}</span>`:''}</div><div class="r">${r[5]}</div></div>`).join('');
 
