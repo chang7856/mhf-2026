@@ -606,7 +606,7 @@ a.logo:hover{border-color:var(--ink)}
 <section class="tickets" id="tickets" aria-labelledby="h-t">
   <div class="wrap">
     <div class="sec-h rv"><h2 id="h-t"><span class="zh">選一種劑量</span><span class="en">Tickets</span></h2>
-      <p><span class="zh">每張票都含一場對談、藝術治療、身體療癒、睡眠美學療癒和音樂之夜。電音療癒每場 20 人、紅酒瑜珈 10 人，想去要早點選。</span><span class="en">Every ticket includes one panel, art therapy, Body Pages, sleep &amp; space healing and the live music night. Workshop places are limited, so book early.</span></p>
+      <p><span class="zh">每張票都含一場對談、身體療癒、藝術治療或睡眠療癒（擇一）和音樂之夜。電音療癒與紅酒瑜珈已售罄。</span><span class="en">Every ticket includes one panel, Body Pages, art therapy or sleep ritual (your choice) and the live music night. Sound healing and wine yoga are sold out.</span></p>
     </div>
     <div class="tix" role="radiogroup" aria-label="Ticket type" id="tix"></div>
     <div class="eb" id="eb">
@@ -858,9 +858,9 @@ a.logo:hover{border-color:var(--ink)}
 
   // tickets
   const T=[
-    {id:'tablet',n:'Tablet',p:599,inc:[['一場對談（兩場擇一）','One panel (your choice)'],['藝術治療','Art therapy'],['身體療癒 Body Pages','Body Pages: somatic session'],['睡眠美學療癒','Sleep &amp; space healing'],['音樂之夜 · 交流','Live music night: social &amp; live music']]},
-    {id:'daily',n:'Daily dose',p:999,inc:[['Tablet 全部內容','Everything in Tablet'],['再加一個工作坊','Plus one workshop']],opts:[
-      ['s1','電音療癒 16:30','Sound healing 16:30','限量 20 張','20 places'],['s2','電音療癒 17:30','Sound healing 17:30','售罄','Sold out',1],['y','紅酒瑜珈 16:30','Wine yoga 16:30','售罄','Sold out',1]]},
+    {id:'tablet',n:'Tablet',p:599,inc:[['一場對談（兩場擇一）','One panel (your choice)'],['藝術治療／睡眠療癒（擇一）','Art therapy or sleep ritual (choose one)'],['身體療癒 Body Pages','Body Pages: somatic session'],['音樂之夜 · 交流','Live music night: social &amp; live music']]},
+    {id:'daily',n:'Daily dose',p:999,sold:1,inc:[['Tablet 全部內容','Everything in Tablet'],['再加一個工作坊','Plus one workshop']],opts:[
+      ['s1','電音療癒 16:30','Sound healing 16:30','售罄','Sold out',1],['s2','電音療癒 17:30','Sound healing 17:30','售罄','Sold out',1],['y','紅酒瑜珈 16:30','Wine yoga 16:30','售罄','Sold out',1]]},
     {id:'full',n:'Full course',p:1299,sold:1,inc:[['Tablet 全部內容','Everything in Tablet'],['紅酒瑜珈 16:30','Wine yoga 16:30'],['電音療癒 17:30','Sound healing 17:30'],['限量 10 張','10 places']]}
   ];
   let sel='tablet', opt='s1';
