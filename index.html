@@ -19,7 +19,7 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)
 <link rel="icon" type="image/png" href="meta/favicon.png">
 <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
 <meta name="theme-color" content="#FF5A1F">
 <style>
 /* Anton (latin) inlined so the headline renders in its real face on first paint and in link-preview screenshots */
@@ -28,6 +28,7 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)
 :root{
   --paper:#F3EFE6; --paper2:#E9E4D8; --ink:#141414; --ink2:#3A3833; --line:rgba(20,20,20,.16);
   --orange:#FF5A1F; --purple:#7D5CFF; --lime:#C6F06B; --pink:#FF9BC8;
+  --mono:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --f-giant:"Anton Inline", "Anton", "Noto Sans TC", Impact, "Arial Narrow", sans-serif;
   --f-tc:"Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
   --gut:clamp(16px,4vw,56px);
@@ -330,6 +331,22 @@ a.logo:hover{border-color:var(--ink)}
 .opt{display:flex;align-items:center;gap:.6rem;border:1.5px solid currentColor;border-radius:12px;padding:.5rem .75rem;background:transparent;cursor:pointer;font-size:.98rem;font-weight:700;text-align:left}
 .opt[aria-checked="true"]{background:var(--orange);color:var(--ink);border-color:var(--orange)}
 .opt small{font-size:inherit;font-weight:500;margin-left:auto;white-space:nowrap}
+.opt.sold{cursor:default;opacity:.5;text-decoration:line-through;text-decoration-color:var(--orange);text-decoration-thickness:2px}
+.opt.sold small{text-decoration:none;color:var(--orange);font-weight:900}
+.tk[aria-checked="true"] .opt.sold small{color:var(--orange)}
+/* early bird countdown */
+.eb{margin-top:clamp(1.2rem,3vw,2rem);background:var(--paper);color:var(--ink);border:2px solid var(--ink);display:grid;grid-template-columns:1.2fr 1fr;gap:1rem 2rem;padding:clamp(1.1rem,2.4vw,1.8rem) clamp(1.1rem,2.6vw,2rem);align-items:center}
+.eb .tag{display:inline-block;font-family:var(--mono);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.35rem .7rem;margin-bottom:.7rem}
+.eb h3{font-weight:900;font-size:clamp(1.35rem,2.6vw,2rem);line-height:1.2;margin:0}
+.eb h3 em{font-style:normal;color:var(--orange)}
+.eb p{margin:.55rem 0 0;font-weight:500;line-height:1.6;color:var(--ink2)}
+.eb .cd{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;text-align:center}
+.eb .cd div{background:var(--ink);color:var(--paper);padding:.7rem .2rem .55rem}
+.eb .cd b{display:block;font-family:var(--f-giant);font-weight:400;font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:.95;color:var(--orange);font-variant-numeric:tabular-nums}
+.eb .cd span{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;margin-top:.35rem;opacity:.85}
+.eb.over .cd{display:none}
+.eb.over{grid-template-columns:1fr}
+@media(max-width:760px){.eb{grid-template-columns:1fr}.eb .cd{gap:.3rem}.eb .cd b{font-size:2.1rem}}
 .buy{margin-top:clamp(1.2rem,3vw,2rem);display:flex;align-items:center;gap:1rem 1.2rem;flex-wrap:wrap;background:var(--ink);color:var(--paper);padding:1.1rem 1.1rem 1.1rem 1.6rem}
 .buy .sum{font-weight:700;font-size:1.08rem;min-width:0;flex:1 1 16rem}
 .buy .sum b{font-family:var(--f-giant);font-weight:400;font-size:1.8rem;margin-left:.4rem;color:var(--orange);vertical-align:-.1em}
@@ -592,6 +609,19 @@ a.logo:hover{border-color:var(--ink)}
       <p><span class="zh">每張票都含一場對談、藝術治療、睡眠美學療癒和音樂之夜。電音療癒每場 20 人、紅酒瑜珈 10 人，想去要早點選。</span><span class="en">Every ticket includes one panel, art therapy, sleep &amp; space healing and the live music night. Workshop places are limited, so book early.</span></p>
     </div>
     <div class="tix" role="radiogroup" aria-label="Ticket type" id="tix"></div>
+    <div class="eb" id="eb">
+      <div class="eb-txt">
+        <span class="tag"><span class="zh">早鳥票倒數</span><span class="en">Early bird ends in</span></span>
+        <h3 id="eb-h"><span class="zh">早鳥票時段即將結束，倒數 <em>三</em> 天。</span><span class="en">Early-bird pricing ends in <em>3</em> days.</span></h3>
+        <p><span class="zh">現在的票價只到 11/11（二）23:59，11/12 起調整票價。</span><span class="en">Current prices hold until Nov 11, 23:59 (Taipei). Prices change from Nov 12.</span></p>
+      </div>
+      <div class="cd" role="timer" aria-live="off" id="cd">
+        <div><b id="cd-d">0</b><span><span class="zh">天</span><span class="en">days</span></span></div>
+        <div><b id="cd-h">00</b><span><span class="zh">時</span><span class="en">hrs</span></span></div>
+        <div><b id="cd-m">00</b><span><span class="zh">分</span><span class="en">min</span></span></div>
+        <div><b id="cd-s">00</b><span><span class="zh">秒</span><span class="en">sec</span></span></div>
+      </div>
+    </div>
     <div class="buy">
       <div class="sum" id="sum"></div>
       <a class="btn" id="buybtn" href="https://www.accupass.com/event/2610020512371501376639" target="_blank" rel="noopener"><span class="zh">購票</span><span class="en">Buy tickets</span></a>
@@ -830,7 +860,7 @@ a.logo:hover{border-color:var(--ink)}
   const T=[
     {id:'tablet',n:'Tablet',p:599,inc:[['一場對談（兩場擇一）','One panel (your choice)'],['藝術治療','Art therapy'],['睡眠美學療癒','Sleep &amp; space healing'],['音樂之夜 · 交流','Live music night: social &amp; live music']]},
     {id:'daily',n:'Daily dose',p:999,inc:[['Tablet 全部內容','Everything in Tablet'],['再加一個工作坊','Plus one workshop']],opts:[
-      ['s1','電音療癒 16:30','Sound healing 16:30','限量 20 張','20 places'],['s2','電音療癒 17:30','Sound healing 17:30','限量 20 張','20 places'],['y','紅酒瑜珈 16:30','Wine yoga 16:30','限量 10 張','10 places']]},
+      ['s1','電音療癒 16:30','Sound healing 16:30','限量 20 張','20 places'],['s2','電音療癒 17:30','Sound healing 17:30','售罄','Sold out',1],['y','紅酒瑜珈 16:30','Wine yoga 16:30','售罄','Sold out',1]]},
     {id:'full',n:'Full course',p:1299,sold:1,inc:[['Tablet 全部內容','Everything in Tablet'],['紅酒瑜珈 16:30','Wine yoga 16:30'],['電音療癒 17:30','Sound healing 17:30'],['限量 10 張','10 places']]}
   ];
   let sel='tablet', opt='s1';
@@ -841,16 +871,34 @@ a.logo:hover{border-color:var(--ink)}
       <div class="tn">${t.n}</div>
       <div class="pr"><span>NT$</span>${t.p.toLocaleString('en-US')}</div>
       <ul>${t.inc.map(x=>`<li>${bi(x[0],x[1])}</li>`).join('')}</ul>
-      ${t.opts?`<div class="opts" role="radiogroup" aria-label="Workshop">${t.opts.map(o=>`<button type="button" class="opt" role="radio" aria-checked="${t.id===sel&&o[0]===opt}" data-o="${o[0]}">${bi(o[1],o[2])}<small>${bi(o[3],o[4])}</small></button>`).join('')}</div>`:''}
+      ${t.opts?`<div class="opts" role="radiogroup" aria-label="Workshop">${t.opts.map(o=>`<button type="button" class="opt${o[5]?' sold':''}" role="radio" aria-checked="${t.id===sel&&o[0]===opt}" ${o[5]?'aria-disabled="true" tabindex="-1"':''} data-o="${o[0]}">${bi(o[1],o[2])}<small>${bi(o[3],o[4])}</small></button>`).join('')}</div>`:''}
     </div>`).join('');
     const t=T.find(x=>x.id===sel); let label=t.n;
     if(t.opts){const o=t.opts.find(x=>x[0]===opt); label+=' · '+bi(o[1],o[2]);}
     document.getElementById('sum').innerHTML=label+`<b>NT$${t.p.toLocaleString('en-US')}</b>`;
     document.getElementById('buybtn').href=ACCUPASS;
   }
-  tix.addEventListener('click',e=>{const o=e.target.closest('.opt'); const c=e.target.closest('.tk'); if(!c||c.classList.contains('sold')) return; sel=c.dataset.t; if(o) opt=o.dataset.o; drawT();});
+  tix.addEventListener('click',e=>{const o=e.target.closest('.opt'); const c=e.target.closest('.tk'); if(!c||c.classList.contains('sold')) return; if(o&&o.classList.contains('sold')) return; sel=c.dataset.t; if(o) opt=o.dataset.o; drawT();});
   tix.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('tk')&&!e.target.classList.contains('sold')){e.preventDefault();sel=e.target.dataset.t;drawT();tix.querySelector(`[data-t="${sel}"]`).focus();}});
   drawT();
+
+  // early bird countdown: ends 2026-11-11 23:59:59 Taipei (= 2026-11-11T16:00Z)
+  (function(){
+    const END=Date.UTC(2026,10,11,16,0,0); const eb=document.getElementById('eb'); if(!eb) return;
+    const Z=['零','一','兩','三','四','五','六','七','八','九'];
+    const el={d:document.getElementById('cd-d'),h:document.getElementById('cd-h'),m:document.getElementById('cd-m'),s:document.getElementById('cd-s'),hd:document.getElementById('eb-h')};
+    const pad=n=>String(n).padStart(2,'0');
+    function tick(){
+      const left=END-Date.now();
+      if(left<=0){eb.classList.add('over'); el.hd.innerHTML=bi('早鳥票時段已結束，票價調整中。','Early-bird pricing has ended. New prices coming shortly.'); return;}
+      const d=Math.floor(left/864e5), hh=Math.floor(left%864e5/36e5), mm=Math.floor(left%36e5/6e4), ss=Math.floor(left%6e4/1e3);
+      el.d.textContent=d; el.h.textContent=pad(hh); el.m.textContent=pad(mm); el.s.textContent=pad(ss);
+      const days=Math.ceil(left/864e5);
+      el.hd.innerHTML=bi(`早鳥票時段即將結束，倒數 <em>${Z[days]||days}</em> 天。`,`Early-bird pricing ends in <em>${days}</em> day${days===1?'':'s'}.`);
+      setTimeout(tick,1000-(Date.now()%1000));
+    }
+    tick();
+  })();
 
   // schedule
   const S=[
