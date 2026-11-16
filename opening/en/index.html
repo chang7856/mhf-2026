@@ -1,0 +1,112 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Mental Health Festival 2026 · English Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&family=Hanken+Grotesk:wght@300;500&display=swap" rel="stylesheet">
+<style>
+/* English panel "Taking Care of Yourself Abroad" — clicker controlled, English only.
+   0 standby · 1 title page builds · 2 host walks on · 3 the two guests join · 4 portraits leave, title page stays as the backdrop · 5 standby.
+   Next: PageDown → ↓ Space Enter click.  Back: PageUp ← ↑ Backspace right-click.  B or . = black.  F = fullscreen.  Home/End. */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;cursor:none}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;margin:-540px 0 0 -960px;background:#FBF3E7;overflow:hidden;transform-origin:50% 50%;color:#141414}
+.L{font-family:'Londrina Solid',sans-serif;font-weight:900;line-height:.92;letter-spacing:.015em;text-transform:uppercase}
+#sb{position:absolute;inset:0;width:1920px;height:1080px;border:0;z-index:9;pointer-events:none}
+#black{position:fixed;inset:0;background:#000;z-index:99;opacity:0;transition:opacity .4s;pointer-events:none}#black.on{opacity:1}
+/* ── English panel walk-on. data-s 13–16 = steps 1–4 (same layer CSS as the opening deck) ──
+   13 title page builds · 14 host walks on · 15 the two guests join (three slanted panels) · 16 panels leave, title page returns as the backdrop.
+   The title page always clears to plain cream before any portrait travels, so nothing ever cuts across the title. */
+#pn{position:absolute;inset:0;z-index:12;background:#FBF3E7;opacity:0;transition:opacity .6s ease;pointer-events:none;overflow:hidden}
+#pn.on{opacity:1}
+#pn.nt,#pn.nt *{transition:none!important}
+.tp{position:absolute;transition:transform .5s cubic-bezier(.7,0,.84,0),opacity .35s ease,filter .35s ease;transition-delay:var(--o,0s);transform:var(--out);will-change:transform}
+.tp.bk{overflow:hidden}.tp.tf{opacity:0;filter:blur(8px)}
+#pn[data-s="13"] .tp,#pn[data-s="16"] .tp{transform:none;opacity:1;filter:none;transition:transform 1s cubic-bezier(.16,1,.3,1),opacity .7s ease,filter .7s ease;transition-delay:var(--i,.5s)}
+#pn[data-s="16"] .tp{transition-delay:calc(var(--i,.5s) + .55s)}
+.tp .c{position:absolute;border-radius:50%;left:auto;right:auto;text-align:left}
+@keyframes rise{from{transform:translateY(10px)}to{transform:translateY(-10px)}}.rise{animation:rise 4s ease-in-out var(--bd,0s) infinite alternate}
+.sl{position:absolute;top:0;height:1080px;overflow:hidden;transition:transform 1.05s cubic-bezier(.16,1,.3,1),clip-path 1s cubic-bezier(.7,0,.2,1);will-change:transform}
+.sl .zm{position:absolute;inset:0;transform:scale(1.16);transform-origin:45% 38%;transition:transform 1.9s cubic-bezier(.16,1,.3,1)}
+.sl img{display:block}.sl .cv{width:100%;height:100%;object-fit:cover}
+.sl .sh{position:absolute;left:0;right:0;bottom:0;height:420px}
+.sl .nm{position:absolute;bottom:84px;color:#FBF3E7;opacity:0;transform:translateY(26px);transition:opacity .3s ease,transform .3s ease;white-space:nowrap}
+.E3{font-family:'Hanken Grotesk',sans-serif;font-weight:300;letter-spacing:-.02em;line-height:1;white-space:nowrap}
+.S6{font-family:'Noto Serif TC',serif;font-weight:600;letter-spacing:.08em;white-space:nowrap}
+.r5{font-family:'Hanken Grotesk','Noto Serif TC',sans-serif;font-weight:500;letter-spacing:.04em;white-space:nowrap}
+#sj{left:0;width:1060px;clip-path:polygon(0 0,1060px 0,820px 1080px,0 1080px);transform:translateX(-1120px)}
+#sj img{position:absolute;left:0;top:0;transform-origin:0 0;transform:translate(var(--hx,0),var(--hy,0)) scale(var(--hs,1));transition:transform 1s cubic-bezier(.7,0,.2,1)}
+#sr{left:612px;width:740px;clip-path:polygon(160px 0,740px 0,580px 1080px,0 1080px);transform:translateX(1400px)}
+#sl{left:1204px;width:716px;clip-path:polygon(160px 0,716px 0,716px 1080px,0 1080px);transform:translateX(900px)}
+#pn[data-s="14"] #sj{transform:none;transition-delay:.68s}
+#pn[data-s="14"] #sj .zm{transform:none;transition-delay:.68s}
+#pn[data-s="15"] .sl{transform:none}
+#pn[data-s="15"] #sj,#pn[data-s="16"] #sj{clip-path:polygon(0 0,760px 0,600px 1080px,0 1080px)}
+#pn[data-s="15"] #sj img,#pn[data-s="16"] #sj img{transform:translate(var(--tx,0),var(--ty,0)) scale(var(--ts,1))}
+#pn[data-s="15"] .zm,#pn[data-s="16"] .zm{transform:none}
+#pn[data-s="15"] #sr,#pn[data-s="15"] #sr .zm{transition-delay:.35s}
+#pn[data-s="15"] #sl,#pn[data-s="15"] #sl .zm{transition-delay:.55s}
+#pn[data-s="15"] .nm{opacity:1;transform:none;transition:opacity .7s ease,transform .9s cubic-bezier(.16,1,.3,1);transition-delay:var(--nd,1s)}
+#pn[data-s="16"] .nm{opacity:1;transform:none}
+#pn[data-s="16"] .sl{transform:translateX(2100px);transition:transform .85s cubic-bezier(.6,0,.9,.2);transition-delay:var(--xd,0s)}
+/* host name: lines rise out of a mask, letter by letter */
+.ht{position:absolute;opacity:0;transition:opacity .3s ease}
+#pn[data-s="14"] .ht{opacity:1;transition-delay:.9s}
+.mk{overflow:hidden;display:block}.mk>span,.mk>i{display:inline-block;font-style:normal;transform:translateY(112%);transition:transform 0s linear .4s}
+#pn[data-s="14"] .mk>span,#pn[data-s="14"] .mk>i{transform:none;transition:transform 1s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--k,0)*38ms + var(--b,1s))}
+#hl{position:absolute;left:1090px;top:640px;width:120px;height:3px;background:#141414;transform:scaleX(0);transform-origin:0 50%;transition:transform .2s ease}
+#pn[data-s="14"] #hl{transform:none;transition:transform .8s cubic-bezier(.16,1,.3,1) 1.75s}
+#hd{position:absolute;left:1790px;top:92px;width:44px;height:44px;border-radius:50%;background:#FF5A1F;transform:scale(0);transition:transform .2s ease}
+#pn[data-s="14"] #hd{transform:none;transition:transform .7s cubic-bezier(.34,1.56,.64,1) 2.1s}
+@keyframes bob{from{transform:translateY(0) rotate(var(--r,0deg))}to{transform:translateY(-12px) rotate(calc(var(--r,0deg) + 3deg))}}
+.bob{animation:bob var(--t,3s) ease-in-out var(--bd,0s) infinite alternate}
+</style></head><body><div id="stage">
+<iframe id="sb" src="../standby.html?v=b"></iframe>
+<div id="pn" data-s="0"></div>
+</div><div id="black"></div>
+<script>
+const P={o:'#FF5A1F',blue:'#2438D8',cream:'#FBF3E7',ink:'#141414'};
+const C=k=>`../a/${k}.png`, LG='../a/', DU='../a/d-';
+const stage=document.getElementById('stage'), sb=document.getElementById('sb'), pn=document.getElementById('pn');
+/* duotones [shadow, highlight]: Jolie pink×berry · Armand sage×burgundy · Dr. Lin royal blue */
+const K={j:['#5A2147','#F1B3CB'],r:['#7A2433','#C9DE9A'],l:['#2A28CC','#F1F1FD']};
+let n=0; const io=()=>`--o:${(n*.02).toFixed(2)}s;--i:${(.5+(n++)*.06).toFixed(2)}s`;
+const bk=(x,y,w,h,c,out,inner='')=>`<div class="tp bk" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;background:${c};--out:${out};${io()}">${inner}</div>`;
+const ci=(x,y,d,c,cls='',bd=0)=>`<div class="c ${cls}" style="left:${x}px;top:${y}px;width:${d}px;height:${d}px;background:${c};--bd:${bd}s"></div>`;
+const U='translateY(-106%)',Dn='translateY(106%)',Lf='translateX(-106%)',Rt='translateX(106%)';
+/* title page = the Mandarin one mirrored, orange and blue swapped */
+let t=bk(780,0,820,170,P.o,U)
+ +bk(1600,170,320,330,P.blue,Rt,ci(60,65,200,P.cream,'rise'))+bk(1600,500,320,250,'#F7B2CC',Rt,ci(-130,-5,260,P.cream))
+ +bk(0,120,320,330,P.blue,Lf)+bk(0,450,320,300,P.o,Lf,ci(70,60,180,P.cream,'rise',-2)+ci(20,36,160,P.o))
+ +bk(320,910,1280,170,P.blue,Dn,ci(570,40,240,P.cream)+ci(300,40,240,P.cream)+ci(30,40,240,P.cream))+bk(1600,910,320,170,P.o,Dn);
+const tf=(st,inner,cls='')=>`<div class="tp tf ${cls}" style="${st};--out:translateY(28px);${io()}">${inner}</div>`;
+const ch=(k,x,y,w,r,tt,bd)=>tf(`left:${x}px;top:${y}px;width:${w}px`,`<img class="bob" src="${C(k)}" style="width:100%;display:block;--r:${r}deg;--t:${tt}s;--bd:${bd}s">`);
+t+=tf('left:320px;width:1280px;top:226px;text-align:center;font-size:186px;line-height:.98;letter-spacing:.02em','Taking care<br>of yourself<br>abroad','L')
+ +ch('snowman',940,796,140,5,3,0)+ch('bluebag',374,826,190,-5,3.6,-1.5)+ch('daisy',80,6,150,-6,3.3,-.8)
+ +tf('left:40px;top:966px;width:240px',`<img src="${LG}black-eng-only.png" style="width:100%;display:block">`);
+const sh=k=>`<div class="sh" style="background:linear-gradient(180deg,${K[k][0]}00,${K[k][0]}E6)"></div>`;
+const nm=(x,en,role,nd)=>`<div class="nm" style="left:${x}px;--nd:${nd}s"><div class="E3" style="font-size:80px">${en}</div><div class="r5" style="margin-top:20px;font-size:30px">${role}</div></div>`;
+const ltr=(w,b)=>[...w].map((c,i)=>`<i style="--k:${i};--b:${b}s">${c===' '?'&nbsp;':c}</i>`).join('');
+t+=`<div class="sl" id="sj" style="background:${K.j[1]};--xd:.16s"><div class="zm"><img id="pj" src="${DU}jo.jpg"></div>${sh('j')}${nm(60,'Jolie Chi','Creator',.5)}</div>`
+ +`<div class="sl" id="sr" style="background:${K.r[1]};--xd:.08s"><div class="zm"><img class="cv" src="${DU}ar.jpg" style="object-position:50% 0%"></div>${sh('r')}${nm(64,'Armand','French creator in Taiwan',1.05)}</div>`
+ +`<div class="sl" id="sl" style="background:${K.l[1]};--xd:0s"><div class="zm"><img class="cv" src="${DU}li.jpg" style="object-position:50% 20%"></div>${sh('l')}${nm(66,'Dr. Yu-Shiou Lin','Psychiatrist',1.25)}</div>`
+ +`<div class="ht E3" style="left:1082px;top:400px;font-size:176px;line-height:1.3"><span class="mk">${ltr('Jolie Chi',1.1)}</span></div>`
+ +`<div id="hl"></div><div class="ht r5" style="left:1090px;top:668px;font-size:34px;line-height:1.5"><span class="mk"><span style="--b:1.85s">Creator</span></span></div><div id="hd"></div>`;
+pn.innerHTML=t;
+/* the host portrait keeps one image and re-frames between the wide host panel and the narrow trio panel (hair is never cropped at the top) */
+const pj=document.getElementById('pj'), cov=(bw,px,py)=>{const w=pj.naturalWidth,h=pj.naturalHeight,s=Math.max(bw/w,1080/h);return [s,(bw-w*s)*px,(1080-h*s)*py]};
+const fitJ=()=>{const a=cov(1060,.5,0),b=cov(760,.5,0); [['h',a],['t',b]].forEach(([k,v])=>{pj.style.setProperty(`--${k}s`,v[0]);pj.style.setProperty(`--${k}x`,v[1]+'px');pj.style.setProperty(`--${k}y`,v[2]+'px')})};
+pj.complete&&pj.naturalWidth?fitJ():pj.addEventListener('load',fitJ);
+const LAST=5; let step=Math.min(LAST,Math.max(0,+(location.hash.slice(1)||0))), was=false;
+function show(k,instant){ step=Math.min(LAST,Math.max(0,k)); history.replaceState(null,'','#'+step);
+  const on=step>=1&&step<=4, s=step+12;
+  if(on){ if(!was||instant){pn.classList.add('nt'); pn.dataset.s=step===1?'0':String(s); void pn.offsetWidth; pn.classList.remove('nt')} pn.dataset.s=String(s) }
+  pn.classList.toggle('on',on); was=on; }
+const NEXT=['PageDown','ArrowRight','ArrowDown',' ','Enter'], PREV=['PageUp','ArrowLeft','ArrowUp','Backspace'];
+addEventListener('keydown',e=>{ const k=e.key;
+  if(NEXT.includes(k)){e.preventDefault();show(step+1)} else if(PREV.includes(k)){e.preventDefault();show(step-1)}
+  else if(k==='b'||k==='B'||k==='.'){document.getElementById('black').classList.toggle('on')}
+  else if(k==='f'||k==='F'||k==='F5'){e.preventDefault(); document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})}
+  else if(k==='Home')show(0); else if(k==='End')show(LAST); else if(k==='Escape')document.getElementById('black').classList.remove('on'); });
+addEventListener('click',()=>show(step+1));
+addEventListener('contextmenu',e=>{e.preventDefault();show(step-1)});
+sb.addEventListener('load',()=>{try{sb.contentWindow.addEventListener('keydown',e=>{e.preventDefault();window.dispatchEvent(new KeyboardEvent('keydown',{key:e.key}))});}catch(_){} window.focus()});
+const fit=()=>{stage.style.transform=`scale(${Math.min(innerWidth/1920,innerHeight/1080)})`}; addEventListener('resize',fit); fit();
+show(step,true); window.focus(); window.__deck={show,get step(){return step},LAST};
+</script></body></html>
