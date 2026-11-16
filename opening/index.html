@@ -1,5 +1,5 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Mental Health Festival 2026 · Opening</title>
-<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&family=Noto+Sans+TC:wght@700;900&family=Hanken+Grotesk:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&family=Noto+Sans+TC:wght@700;900&family=Hanken+Grotesk:wght@300;500&family=Noto+Serif+TC:wght@600&display=swap" rel="stylesheet">
 <style>
 /* Opening deck — clicker controlled. Keynote-style: one idea per step, cream stage, ink type, two persistent discs (orange, royal blue)
    that glide and resize between scenes ("magic move"); everything else fades up softly. Stage is 1920×1080, scaled to the window.
@@ -19,11 +19,56 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;cursor:none}
 .face{border-radius:50%;overflow:hidden}.face img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
 #sb{position:absolute;inset:0;width:1920px;height:1080px;border:0;z-index:9;opacity:0;transition:opacity .8s ease;pointer-events:none}#sb.on{opacity:1}
 #black{position:fixed;inset:0;background:#000;z-index:99;opacity:0;transition:opacity .4s;pointer-events:none}#black.on{opacity:1}
+/* ── Mandarin panel walk-on (steps 13–16), then back to standby (17) ──
+   13 title page builds · 14 host walks on · 15 the two guests join (three slanted panels) · 16 panels leave, title page returns as the backdrop.
+   The title page always clears to plain cream before any portrait travels, so nothing ever cuts across the title. */
+#pn{position:absolute;inset:0;z-index:12;background:#FBF3E7;opacity:0;transition:opacity .6s ease;pointer-events:none;overflow:hidden}
+#pn.on{opacity:1}
+#pn.nt,#pn.nt *{transition:none!important}
+.tp{position:absolute;transition:transform .5s cubic-bezier(.7,0,.84,0),opacity .35s ease,filter .35s ease;transition-delay:var(--o,0s);transform:var(--out);will-change:transform}
+.tp.bk{overflow:hidden}.tp.tf{opacity:0;filter:blur(8px)}
+#pn[data-s="13"] .tp,#pn[data-s="16"] .tp{transform:none;opacity:1;filter:none;transition:transform 1s cubic-bezier(.16,1,.3,1),opacity .7s ease,filter .7s ease;transition-delay:var(--i,.5s)}
+#pn[data-s="16"] .tp{transition-delay:calc(var(--i,.5s) + .55s)}
+.tp .c{position:absolute;border-radius:50%;left:auto;right:auto;text-align:left}
+@keyframes rise{from{transform:translateY(10px)}to{transform:translateY(-10px)}}.rise{animation:rise 4s ease-in-out var(--bd,0s) infinite alternate}
+.sl{position:absolute;top:0;height:1080px;overflow:hidden;transition:transform 1.05s cubic-bezier(.16,1,.3,1),clip-path 1s cubic-bezier(.7,0,.2,1);will-change:transform}
+.sl .zm{position:absolute;inset:0;transform:scale(1.16);transform-origin:45% 38%;transition:transform 1.9s cubic-bezier(.16,1,.3,1)}
+.sl img{display:block}.sl .cv{width:100%;height:100%;object-fit:cover}
+.sl .sh{position:absolute;left:0;right:0;bottom:0;height:420px}
+.sl .nm{position:absolute;bottom:84px;color:#FBF3E7;opacity:0;transform:translateY(26px);transition:opacity .3s ease,transform .3s ease;white-space:nowrap}
+.E3{font-family:'Hanken Grotesk',sans-serif;font-weight:300;letter-spacing:-.02em;line-height:1;white-space:nowrap}
+.S6{font-family:'Noto Serif TC',serif;font-weight:600;letter-spacing:.08em;white-space:nowrap}
+.r5{font-family:'Hanken Grotesk','Noto Serif TC',sans-serif;font-weight:500;letter-spacing:.04em;white-space:nowrap}
+#sj{left:0;width:1060px;clip-path:polygon(0 0,1060px 0,820px 1080px,0 1080px);transform:translateX(-1120px)}
+#sj img{position:absolute;left:0;top:0;transform-origin:0 0;transform:translate(var(--hx,0),var(--hy,0)) scale(var(--hs,1));transition:transform 1s cubic-bezier(.7,0,.2,1)}
+#sr{left:612px;width:740px;clip-path:polygon(160px 0,740px 0,580px 1080px,0 1080px);transform:translateX(1400px)}
+#sl{left:1204px;width:716px;clip-path:polygon(160px 0,716px 0,716px 1080px,0 1080px);transform:translateX(900px)}
+#pn[data-s="14"] #sj{transform:none;transition-delay:.68s}
+#pn[data-s="14"] #sj .zm{transform:none;transition-delay:.68s}
+#pn[data-s="15"] .sl{transform:none}
+#pn[data-s="15"] #sj,#pn[data-s="16"] #sj{clip-path:polygon(0 0,760px 0,600px 1080px,0 1080px)}
+#pn[data-s="15"] #sj img,#pn[data-s="16"] #sj img{transform:translate(var(--tx,0),var(--ty,0)) scale(var(--ts,1))}
+#pn[data-s="15"] .zm,#pn[data-s="16"] .zm{transform:none}
+#pn[data-s="15"] #sr,#pn[data-s="15"] #sr .zm{transition-delay:.35s}
+#pn[data-s="15"] #sl,#pn[data-s="15"] #sl .zm{transition-delay:.55s}
+#pn[data-s="15"] .nm{opacity:1;transform:none;transition:opacity .7s ease,transform .9s cubic-bezier(.16,1,.3,1);transition-delay:var(--nd,1s)}
+#pn[data-s="16"] .nm{opacity:1;transform:none}
+#pn[data-s="16"] .sl{transform:translateX(2100px);transition:transform .85s cubic-bezier(.6,0,.9,.2);transition-delay:var(--xd,0s)}
+/* host name: lines rise out of a mask, letter by letter */
+.ht{position:absolute;opacity:0;transition:opacity .3s ease}
+#pn[data-s="14"] .ht{opacity:1;transition-delay:.9s}
+.mk{overflow:hidden;display:block}.mk>span,.mk>i{display:inline-block;font-style:normal;transform:translateY(112%);transition:transform 0s linear .4s}
+#pn[data-s="14"] .mk>span,#pn[data-s="14"] .mk>i{transform:none;transition:transform 1s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--k,0)*38ms + var(--b,1s))}
+#hl{position:absolute;left:1090px;top:640px;width:120px;height:3px;background:#141414;transform:scaleX(0);transform-origin:0 50%;transition:transform .2s ease}
+#pn[data-s="14"] #hl{transform:none;transition:transform .8s cubic-bezier(.16,1,.3,1) 1.75s}
+#hd{position:absolute;left:1790px;top:92px;width:44px;height:44px;border-radius:50%;background:#FF5A1F;transform:scale(0);transition:transform .2s ease}
+#pn[data-s="14"] #hd{transform:none;transition:transform .7s cubic-bezier(.34,1.56,.64,1) 2.1s}
 @keyframes bob{from{transform:translateY(0) rotate(var(--r,0deg))}to{transform:translateY(-12px) rotate(calc(var(--r,0deg) + 3deg))}}
 .bob{animation:bob var(--t,3s) ease-in-out var(--bd,0s) infinite alternate}
 </style></head><body><div id="stage">
 <div class="disc" id="dB"></div><div class="disc" id="dO"></div>
 <iframe id="sb" src="standby.html?v=b"></iframe>
+<div id="pn" data-s="0"></div>
 </div><div id="black"></div>
 <script>
 const P={o:'#FF5A1F',blue:'#2438D8',cream:'#FBF3E7',ink:'#141414'};
@@ -61,9 +106,48 @@ el('11-11','top:110px;font-size:190px','Welcome.','L c',.6);
 el('11-11','top:300px;font-size:96px','Take your time.','L c',.85);
 ['tri','star','snowman','bubble','bluebag','daisy'].forEach((k,i)=>{const th=(-50+i*20)*Math.PI/180, w=[190,190,200,220,210,170][i], x=960+700*Math.sin(th), y=1330-700*Math.cos(th); chr('11-11',k,x-w/2,y-w*.86,w,(-50+i*20)*.35,.9+i*.1)});
 stage.insertAdjacentHTML('beforeend',H);
+/* ── 13–16 Mandarin panel walk-on ── */
+(()=>{ const DU='a/d-', allBlue=new URLSearchParams(location.search).get('c')==='a';
+  const K={j:['#2A28CC','#F1F1FD'],r:allBlue?['#2A28CC','#F1F1FD']:['#7A2433','#C9DE9A'],l:allBlue?['#2A28CC','#F1F1FD']:['#5A2147','#F1B3CB']}, sfx=allBlue?'-a':'';
+  let n=0; const io=()=>`--o:${(n*.02).toFixed(2)}s;--i:${(.5+(n++)*.06).toFixed(2)}s`;
+  const bk=(x,y,w,h,c,out,inner='')=>`<div class="tp bk" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;background:${c};--out:${out};${io()}">${inner}</div>`;
+  const ci=(x,y,d,c,cls='',bd=0)=>`<div class="c ${cls}" style="left:${x}px;top:${y}px;width:${d}px;height:${d}px;background:${c};--bd:${bd}s"></div>`;
+  const U='translateY(-106%)',Dn='translateY(106%)',Lf='translateX(-106%)',Rt='translateX(106%)';
+  let t=bk(320,0,820,170,P.blue,U)
+   +bk(0,170,320,330,P.o,Lf,ci(60,65,200,P.cream,'rise'))+bk(0,500,320,250,'#F7B2CC',Lf,ci(190,-5,260,P.cream))
+   +bk(1600,120,320,330,P.o,Rt)+bk(1600,450,320,300,P.blue,Rt,ci(70,60,180,'#FFD84D','rise',-2)+ci(140,36,160,P.blue))
+   +bk(320,910,1280,170,P.o,Dn,ci(470,40,240,P.cream)+ci(740,40,240,P.cream)+ci(1010,40,240,P.cream))+bk(0,910,320,170,P.blue,Dn);
+  const tf=(st,inner,cls='')=>`<div class="tp tf ${cls}" style="${st};--out:translateY(28px);${io()}">${inner}</div>`;
+  t+=tf('left:320px;width:1280px;top:212px;text-align:center;font-size:200px;line-height:1.18','職涯焦慮，<br>AI 之後','Z')
+   +tf('left:320px;width:1280px;top:704px;text-align:center;font-size:66px;line-height:1.2;letter-spacing:.02em','Career anxiety, after AI','L')
+   +tf('left:840px;top:796px;width:140px',`<img class="bob" src="${C('star')}" style="width:100%;display:block;--r:-5deg;--t:3s">`)
+   +tf('left:1356px;top:826px;width:190px',`<img class="bob" src="${C('bubble')}" style="width:100%;display:block;--r:5deg;--t:3.6s;--bd:-1.5s">`)
+   +tf('left:1690px;top:6px;width:150px',`<img class="bob" src="${C('tri')}" style="width:100%;display:block;--r:6deg;--t:3.3s;--bd:-.8s">`)
+   +tf('left:1640px;top:966px;width:240px',`<img src="${LG}black-eng-only.png" style="width:100%;display:block">`);
+  const sh=k=>`<div class="sh" style="background:linear-gradient(180deg,${K[k][0]}00,${K[k][0]}E6)"></div>`;
+  const nm=(x,en,zh,role,nd)=>`<div class="nm" style="left:${x}px;--nd:${nd}s"><div class="E3" style="font-size:88px">${en}</div><div class="r5" style="margin-top:20px;font-size:30px">${zh?`<span class="S6" style="font-size:32px;margin-right:22px">${zh}</span>`:''}${role}</div></div>`;
+  const ltr=(w,b)=>[...w].map((ch,i)=>`<i style="--k:${i};--b:${b}s">${ch===' '?'&nbsp;':ch}</i>`).join('');
+  t+=`<div class="sl" id="sj" style="background:${K.j[1]};--xd:.16s"><div class="zm"><img id="pj" src="${DU}j.jpg"></div>${sh('j')}${nm(60,'Jessie Chang','張道芳','聊心茶室 創辦人',.5)}</div>`
+   +`<div class="sl" id="sr" style="background:${K.r[1]};--xd:.08s"><div class="zm"><img class="cv" src="${DU}r${sfx}.jpg" style="object-position:50% 22%"></div>${sh('r')}${nm(64,'Ryo Lu','魯赫','前 Cursor、Notion 設計師',1.05)}</div>`
+   +`<div class="sl" id="sl" style="background:${K.l[1]};--xd:0s"><div class="zm"><img class="cv" src="${DU}l${sfx}.jpg" style="object-position:50% 22%"></div>${sh('l')}${nm(66,'Lydia Huang','','Worca 人才長',1.25)}</div>`
+   +`<div class="ht S6" style="left:1090px;top:322px;font-size:60px;line-height:1.3"><span class="mk"><span style="--b:1s">張道芳</span></span></div>`
+   +`<div class="ht E3" style="left:1084px;top:434px;font-size:134px;line-height:1.3"><span class="mk">${ltr('Jessie Chang',1.1)}</span></div>`
+   +`<div id="hl"></div><div class="ht r5" style="left:1090px;top:668px;font-size:34px;line-height:1.5"><span class="mk"><span style="--b:1.85s">聊心茶室 創辦人　Founder, HealYou</span></span></div><div id="hd"></div>`;
+  const pn=document.getElementById('pn'); pn.innerHTML=t;
+  /* Jessie's portrait keeps one image and re-frames between the wide host panel and the narrow trio panel */
+  const pj=document.getElementById('pj'), cov=(bw,px,py)=>{const w=pj.naturalWidth,h=pj.naturalHeight,s=Math.max(bw/w,1080/h);return [s,(bw-w*s)*px,(1080-h*s)*py]};
+  const fitJ=()=>{const a=cov(1060,.5,.16),b=cov(760,.5,.16); [['h',a],['t',b]].forEach(([k,v])=>{pj.style.setProperty(`--${k}s`,v[0]);pj.style.setProperty(`--${k}x`,v[1]+'px');pj.style.setProperty(`--${k}y`,v[2]+'px')})};
+  pj.complete&&pj.naturalWidth?fitJ():pj.addEventListener('load',fitJ);
+  let was=false; window.__panel=(step,instant)=>{ const on=step>=13&&step<=16;
+    if(on){ if(!was||instant){pn.classList.add('nt'); pn.dataset.s=step===13?'0':String(step); void pn.offsetWidth; pn.classList.remove('nt')} pn.dataset.s=String(step) }
+    pn.classList.toggle('on',on); was=on };
+})();
+
 /* disc choreography: [orange cx,cy,r, blue cx,cy,r] per step */
 const D=[[150,60,250,1800,90,210],[960,960,20,1920,1080,230],[960,960,20,1920,1080,230],[560,540,400,1720,150,34],[560,540,400,1720,150,34],[200,930,34,1360,540,400],[200,930,34,1360,540,400],
- [1700,170,46,1800,170,46],[1700,170,46,1800,170,46],[150,170,40,250,170,40],[1600,230,120,960,540,1300],[960,1330,700,1850,30,180],[150,60,250,1800,90,210]];
+ [1700,170,46,1800,170,46],[1700,170,46,1800,170,46],[150,170,40,250,170,40],[1600,230,120,960,540,1300],[960,1330,700,1850,30,180],[150,60,250,1800,90,210],
+ [150,60,250,1800,90,210],[150,60,250,1800,90,210],[150,60,250,1800,90,210],[150,60,250,1800,90,210],[150,60,250,1800,90,210]];
+/* 12 = standby (end of the opening) · 13–16 = Mandarin panel walk-on · 17 = standby again */
 const LAST=D.length-1, els=[...document.querySelectorAll('.el')], sb=document.getElementById('sb'), dO=document.getElementById('dO'), dB=document.getElementById('dB');
 /* AUTO: steps that continue by themselves after a beat (logo → tagline, title → list). Going back skips over them. */
 const AUTO={1:1500,7:1300}; let autoT=0;
@@ -72,7 +156,7 @@ const put=(d,x,y,r)=>{d.style.left=(x-r)+'px';d.style.top=(y-r)+'px';d.style.wid
 function show(n,instant){ step=Math.min(LAST,Math.max(0,n)); history.replaceState(null,'','#'+step);
   clearTimeout(autoT); if(AUTO[step]&&!instant) autoT=setTimeout(()=>show(step+1),AUTO[step]);
   const d=D[step]; put(dO,d[0],d[1],d[2]); put(dB,d[3],d[4],d[5]);
-  sb.classList.toggle('on',step===0||step===LAST);
+  sb.classList.toggle('on',step===0||step>=12); __panel(step,instant);
   els.forEach(e=>{const [a,b]=e.dataset.on.split('-').map(Number); e.classList.toggle('on',step>=a&&step<=b)});
   const n51=document.getElementById('n51'); cancelAnimationFrame(timer);
   if(step===4&&!instant){const t0=performance.now()+450; const tick=t=>{const k=Math.min(1,Math.max(0,(t-t0)/1300)); n51.textContent=Math.round(51*(1-Math.pow(1-k,3))); if(k<1)timer=requestAnimationFrame(tick)}; n51.textContent='0'; timer=requestAnimationFrame(tick);} else n51.textContent='51';
@@ -84,9 +168,9 @@ addEventListener('keydown',e=>{ const k=e.key;
   else if(k==='f'||k==='F'||k==='F5'){e.preventDefault(); document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})}
   else if(k==='Home')show(0); else if(k==='End')show(LAST); else if(k==='Escape')document.getElementById('black').classList.remove('on'); });
 addEventListener('click',()=>show(step+1));
-addEventListener('contextmenu',e=>{e.preventDefault();let n=step-1; if(AUTO[n])n--; show(n)});
-sb.addEventListener('load',()=>{try{sb.contentWindow.addEventListener('keydown',e=>{e.preventDefault();window.dispatchEvent(new KeyboardEvent('keydown',{key:e.key}))});}catch(_){}; window.focus();});
-window.focus();
 const fit=()=>{stage.style.transform=`scale(${Math.min(innerWidth/1920,innerHeight/1080)})`}; addEventListener('resize',fit); fit();
 if(AUTO[step])step++; show(step,true); window.__deck={show,get step(){return step},LAST};
+addEventListener('contextmenu',e=>{e.preventDefault();let n=step-1; if(AUTO[n])n--; show(n)});
+sb.addEventListener('load',()=>{try{sb.contentWindow.addEventListener('keydown',e=>{e.preventDefault();window.dispatchEvent(new KeyboardEvent('keydown',{key:e.key}))});}catch(_){} window.focus()});
+window.focus();
 </script></body></html>
