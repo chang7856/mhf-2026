@@ -1,0 +1,37 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;500;700&family=Noto+Sans+TC:wght@700;900&family=Noto+Serif+TC:wght@600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#FBF3E7}
+.f{position:relative;width:1920px;height:1080px;overflow:hidden;color:#141414;font-family:'Hanken Grotesk','Noto Sans TC',sans-serif}
+.a{position:absolute}
+.grid{position:absolute;left:860px;top:70px;display:grid;grid-template-columns:repeat(4,170px);gap:16px 70px}
+.ph{width:170px;height:170px;border-radius:50%;overflow:hidden;background:#ddd}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.cap{font-size:18px;font-weight:500;letter-spacing:.02em;margin-top:10px;text-align:center;white-space:nowrap;color:#141414}
+.cap small{display:block;font-size:13px;color:#6b665c;font-weight:500;margin-top:2px}
+.cell{width:170px}
+.E{font-family:'Hanken Grotesk',sans-serif;font-weight:500;letter-spacing:-.01em;line-height:1.05}
+.Z{font-family:'Noto Sans TC',sans-serif;font-weight:900;letter-spacing:.06em}
+</style></head><body><div class="f">
+<div class="a" style="left:120px;top:92px;width:44px;height:44px;border-radius:50%;background:#FF5A1F"></div>
+<div class="a" style="left:176px;top:92px;width:44px;height:44px;border-radius:50%;background:#2438D8"></div>
+<!-- laurel badge -->
+<img class="a" src="laurel/laurel.png" style="left:60px;top:140px;width:660px">
+<div class="a" style="left:60px;top:140px;width:660px;height:562px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+  <div style="font-family:'Hanken Grotesk';font-weight:700;font-size:24px;letter-spacing:.3em;color:#FF5A1F">TAIPEI 2026</div>
+  <div class="Z" style="font-size:44px;letter-spacing:.06em;margin:14px 0 10px">最佳心理健康活動</div>
+  <div style="font-family:'Hanken Grotesk';font-weight:700;font-size:22px;letter-spacing:.22em">BEST MENTAL HEALTH EVENT</div>
+  <div style="font-family:'Hanken Grotesk';font-weight:500;font-size:20px;letter-spacing:.3em;color:#6b665c;margin-top:12px">ASIA · 亞洲</div>
+</div>
+<div class="a E" style="left:120px;top:760px;font-size:52px">2026 Mental Health Festival</div>
+<div class="a" style="left:122px;top:846px;font-size:26px;font-weight:500;letter-spacing:.06em;color:#6b665c">心理健康嘉年華 · 11.21 · 台北 義居雅舍 italife</div>
+<div class="grid" id="grid"></div>
+</div><script>
+const P=[['../photos/jessie.jpg','Jessie Chang','聊心茶室 創辦人','50% 10%'],['../photos/lydia.jpg','Lydia Huang','Worca 人才長','50% 20%'],['../photos/ryo.jpg','Ryo Lu','前 Cursor、Notion 設計師','50% 25%'],['../photos/jolie-new.jpg','Jolie Chi','創作者','50% 15%'],
+['../photos/armand.jpg','Armand','旅台法國創作者','50% 25%'],['../photos/drlin.jpg','Dr. Yu-Shiou Lin','精神科醫師','50% 15%'],['../photos/yasu.jpg','Yasu','電音療癒','50% 40%'],['../photos/melody.jpg','Melody Young','電音療癒 · 科學解夢','50% 15%'],
+['../photos/helen.jpg','Helen Chuang','藝術治療師','50% 20%'],['../photos/tracy.jpg','Tracy Mon','身體療癒','50% 30%'],['../photos/becky.jpg','Becky','睡眠美學療癒師','50% 30%'],['../photos/joy.jpg','Joy','紅酒瑜珈','50% 40%'],
+['musicsq/andrew.jpg','Andrew Tsao','DJ','50% 50%'],['musicsq/kylie.jpg','Kylie Tseng','笛子 · 人聲','50% 50%'],['musicsq/kevin.jpg','Kevin Ku','鋼琴','50% 50%'],['musicsq/nini.jpg','Nini Ku','小提琴','50% 50%']];
+document.getElementById('grid').innerHTML=P.map(([s,n,r,p])=>`<div class="cell"><div class="ph"><img src="${s}" style="object-position:${p}"></div><div class="cap">${n}<small>${r}</small></div></div>`).join('');
+document.fonts.ready.then(()=>Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>{i.onload=i.onerror=r})))).then(()=>{window.__ready=1});
+</script></body></html>
