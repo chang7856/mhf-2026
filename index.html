@@ -761,6 +761,7 @@ a.logo:hover{border-color:var(--ink)}
   html{scroll-behavior:auto}
   .rv.pre{transform:none}
 }
+.cta .pr.sold{opacity:.55}.cta .pr.sold b{font-size:.78em;letter-spacing:.06em}.rbuy.sold{pointer-events:none;opacity:.45;cursor:default}.mbar .m2 .btn.sold{opacity:.5;pointer-events:none}.mbar .m2 .btn.sold b{font-size:.8em;letter-spacing:.06em}
 </style>
 
 <header class="hdr" id="hdr">
@@ -803,7 +804,7 @@ a.logo:hover{border-color:var(--ink)}
         <dt><span class="zh">地點</span><span class="en">Where</span></dt><dd><span class="zh">義居雅舍 · 捷運西湖站</span><span class="en">italife, near MRT Xihu</span></dd>
       </dl>
       <div class="cta">
-        <a class="pr" href="#buy"><small><span class="zh">全日票 <span class="xs">常態補充劑</span></span><span class="en">Full day</span></small><b>NT$1,299</b></a>
+        <a class="pr sold" href="#buy" aria-disabled="true"><small><span class="zh">全日票 <span class="xs">常態補充劑</span></span><span class="en">Full day</span></small><b><span class="zh">已售完</span><span class="en">SOLD OUT</span></b></a>
         <a class="pr nite" href="#buy-night"><small><span class="zh">Night Dose <span class="xs">夜間劑量</span></span><span class="en">Night Dose</span></small><b>NT$300</b></a>
       </div>
     </div>
@@ -938,11 +939,11 @@ a.logo:hover{border-color:var(--ink)}
 <section class="tickets" id="tickets" aria-labelledby="h-t">
   <div class="wrap">
     <div class="sec-h rv"><h2 id="h-t"><span class="zh">選一種劑量</span><span class="en">Tickets</span></h2>
-      <p><span class="zh"><span class="k">兩種劑量：整個下午都來，</span><span class="k">或只來晚上聽音樂。</span></span><span class="en">Two doses: the whole afternoon, or just the music at night.</span></p>
+      <p><span class="zh"><span class="k">全日票已售完。</span><span class="k">還買得到的只剩 Night Dose 夜間劑量。</span></span><span class="en">The full-day ticket is sold out. Night Dose is the only ticket left.</span></p>
     </div>
     <div class="rx rv" id="buy">
       <div class="rcpt" aria-label="What NT$1,299 includes">
-        <div class="hd"><b><span class="zh">常態補充劑 · 全日票</span><span class="en">Tablet · full day</span></b><span class="left"><span class="zh">限量最後 12 張</span><span class="en">Last 12 tickets</span></span></div>
+        <div class="hd"><b><span class="zh">常態補充劑 · 全日票</span><span class="en">Tablet · full day</span></b><span class="left"><span class="zh">已售完</span><span class="en">Sold out</span></span></div>
         <ol>
           <li><span class="t">15:00</span><span class="w"><span class="zh">對談（兩場擇一）</span><span class="en">One panel, your choice</span><span><span class="zh">中文：職涯焦慮，AI 之後 · 英文：在台外國人與男性的心理健康</span><span class="en">Mandarin: career anxiety after AI · English: life abroad and men's mental health</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
           <li><span class="t">16:00</span><span class="w"><span class="zh">交流</span><span class="en">Break</span><span><span class="zh">飲品、點心，認識同一場的人</span><span class="en">Drinks, snacks, meet the people from your panel</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
@@ -950,17 +951,17 @@ a.logo:hover{border-color:var(--ink)}
           <li><span class="t">17:30</span><span class="w"><span class="zh">身體療癒 Body Pages</span><span class="en">Body Pages</span><span><span class="zh">Tracy 帶的身體掃描、直覺繪畫、分享</span><span class="en">Tracy's body scan, intuitive drawing and sharing</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
           <li class="nd-row"><span class="t">18:30</span><span class="w"><span class="zh">Night Dose 音樂場</span><span class="en">Night Dose</span><span><span class="zh">DJ、小提琴、鋼琴、笛子的即興</span><span class="en">DJ, violin, piano and flute improvising</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
         </ol>
-<form class="vc" id="vc" autocomplete="off"><label for="vcin"><span class="zh">優惠碼</span><span class="en">Voucher</span></label><input id="vcin" name="code" type="text" maxlength="32" spellcheck="false" autocapitalize="characters"><button type="submit" class="btn ink sm"><span class="zh">套用</span><span class="en">Apply</span></button><span class="msg" id="vcmsg" role="status" aria-live="polite"></span></form>
+<form class="vc" id="vc" autocomplete="off" style="display:none"><label for="vcin"><span class="zh">優惠碼</span><span class="en">Voucher</span></label><input id="vcin" name="code" type="text" maxlength="32" spellcheck="false" autocapitalize="characters"><button type="submit" class="btn ink sm"><span class="zh">套用</span><span class="en">Apply</span></button><span class="msg" id="vcmsg" role="status" aria-live="polite"></span></form>
         <div class="tot"><span class="tlab"><span class="zh">常態補充劑</span><span class="en">Tablet</span><small id="vcnote"></small></span><b id="rprice"><span>NT$</span>1,299</b></div>
-        <a class="btn rbuy" id="buybtn" href="https://pl.sl-pay.com/XPBHtT2p" target="_blank" rel="noopener"><span class="zh">購買全日票 NT$1,299</span><span class="en">Buy full day · NT$1,299</span></a>
-        <p class="pays"><span class="zh">付款方式</span><span class="en">Pay with</span> <span class="pm"><i class="ic lp"></i>LINE Pay</span><span class="pm"><i class="ic ap"></i>Apple Pay</span><span class="pm"><i class="ic cc"></i><span class="zh">信用卡</span><span class="en">Card</span></span></p>
+        <a class="btn rbuy sold" id="buybtn" aria-disabled="true" tabindex="-1"><span class="zh">全日票已售完</span><span class="en">Full day · sold out</span></a>
+        <p class="pays" style="display:none"><span class="zh">付款方式</span><span class="en">Pay with</span> <span class="pm"><i class="ic lp"></i>LINE Pay</span><span class="pm"><i class="ic ap"></i>Apple Pay</span><span class="pm"><i class="ic cc"></i><span class="zh">信用卡</span><span class="en">Card</span></span></p>
 
       </div>
       <div class="why">
         <div class="ndt" id="buy-night">
           <span class="fx orb"></span>
           <div class="ndt-hd"><span class="lab">NIGHT DOSE · <span class="zh"><span class="k">夜間劑量</span> · <span class="k">限量 30 張</span></span><span class="en">night ticket · 30 tickets</span></span><b><span>NT$</span>300</b></div>
-          <h3><span class="zh">只來聽音樂，認識新朋友。</span><span class="en">Just the music, and new people.</span></h3>
+          <h3><span class="zh">唯一還買得到的票。只來聽音樂，認識新朋友。</span><span class="en">The only ticket left. Just the music, and new people.</span></h3>
           <ul>
             <li><b>17:30</b><span class="zh">進場，音樂 18:30 開始，到 19:30</span><span class="en">doors; music 18:30 to 19:30</span></li>
             <li><b>1F</b><span class="zh">四位音樂家即興：DJ、小提琴、鋼琴、笛子</span><span class="en">Four musicians improvising: DJ, violin, piano, flute</span></li>
@@ -968,12 +969,13 @@ a.logo:hover{border-color:var(--ink)}
             <li class="soft"><b>⚬</b><span class="zh">飲品視當天狀況供應</span><span class="en">Drinks subject to availability on the day</span></li>
           </ul>
           <div class="ndt-acts">
-            <a class="btn" id="buynight" href="#" target="_blank" rel="noopener"><span class="zh">購買 Night Dose 票</span><span class="en">Buy Night Dose</span></a>
+            <a class="btn" id="buynight" href="https://pay.shoplinepayments.com/payment-link/checkout/link_7785916313196832663?sref=https://event2026.healyou.io/" target="_blank" rel="noopener"><span class="zh">購買 Night Dose 票</span><span class="en">Buy Night Dose</span></a>
             <a class="whoa" href="#night"><span class="avs"><img src="music/andrew.jpg" alt=""><img src="music/kylie.jpg" alt=""><img src="music/kevin.jpg" alt=""><img src="music/nini.jpg" alt=""></span><span><span class="zh">今晚是這四位 →</span><span class="en">Tonight's four →</span></span></a>
           </div>
         </div>
-        <p class="anchor"><span class="zh">全日票含 Night Dose，不用另外買。</span><span class="en">The full-day ticket already includes Night Dose.</span></p>
+        <p class="anchor"><span class="zh">已經買了全日票的人，Night Dose 已含在票裡，不用另外買。</span><span class="en">Already have a full-day ticket? Night Dose is included.</span></p>
         <div class="tiers" aria-label="Sold-out tickets">
+          <div class="tier"><span class="tn">Tablet · 全日票</span><span class="tp">NT$1,299</span><span class="ti"><span class="zh">對談、交流、工作坊、身體療癒、Night Dose 全部包含</span><span class="en">Panel, break, workshops, Body Pages and Night Dose</span></span><span class="so"><span class="zh">已售罄</span><span class="en">Sold out</span></span></div>
           <div class="tier"><span class="tn">Daily dose</span><span class="tp">NT$999</span><span class="ti"><span class="zh">Tablet ＋ 一個工作坊（電音療癒或紅酒瑜珈）</span><span class="en">Tablet + one workshop (sound healing or wine yoga)</span></span><span class="so"><span class="zh">已售罄</span><span class="en">Sold out</span></span></div>
           <div class="tier"><span class="tn">Full course</span><span class="tp">NT$1,299</span><span class="ti"><span class="zh">Tablet ＋ 紅酒瑜珈 ＋ 電音療癒第二場</span><span class="en">Tablet + wine yoga + sound healing 2</span></span><span class="so"><span class="zh">已售罄</span><span class="en">Sold out</span></span></div>
         </div>
@@ -1066,7 +1068,7 @@ a.logo:hover{border-color:var(--ink)}
 
 <div class="mbar" id="mbar">
   <div class="mt"><span class="mtl">11.21<span class="zh">（六）</span><span class="en"> Sat</span></span></div>
-  <div class="m2"><a class="btn" href="#buy"><span class="zh">全日票</span><span class="en">Full day</span><b>NT$1,299</b></a><a class="btn night" href="#buy-night"><span class="zh">夜間劑量</span><span class="en">Night Dose</span><b>NT$300</b></a></div>
+  <div class="m2"><a class="btn sold" href="#buy" aria-disabled="true"><span class="zh">全日票</span><span class="en">Full day</span><b><span class="zh">已售完</span><span class="en">SOLD OUT</span></b></a><a class="btn night" href="#buy-night"><span class="zh">夜間劑量</span><span class="en">Night Dose</span><b>NT$300</b></a></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
