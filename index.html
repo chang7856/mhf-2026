@@ -518,7 +518,8 @@ a.logo:hover{border-color:var(--ink)}
 .tier .tp{font-family:var(--f-giant);font-size:1.3rem;line-height:1}
 .tier .ti{font-size:.9rem;font-weight:500;color:var(--ink2)}
 .tier .so{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.25rem .55rem;white-space:nowrap}
-@media(max-width:640px){.tier{grid-template-columns:auto auto minmax(0,1fr)}.tier .ti{grid-column:1/-1}}
+.tier .so{justify-self:start}
+@media(max-width:640px){.tier{grid-template-columns:auto auto minmax(0,1fr)}.tier .ti{grid-column:1/-1}.tier .so{grid-column:1/-1}}
 .tickets .wrap{padding-bottom:clamp(.5rem,1vw,1rem)}
 
 #buy{scroll-margin-top:calc(var(--hdr) + 12px)}
