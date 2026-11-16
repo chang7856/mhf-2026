@@ -396,6 +396,7 @@ a.logo:hover{border-color:var(--ink)}
 .why .pv .lbl{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
 .why .pv p{font-weight:700;line-height:1.6;font-size:1.02rem}
 .why .anchor{font-weight:700;font-size:1.02rem}
+.rx.solo{grid-template-columns:minmax(0,1fr)}
 @media(max-width:900px){.rx{grid-template-columns:1fr}}
 @media(max-width:480px){.rcpt li{grid-template-columns:4rem minmax(0,1fr)}.rcpt li .ok{grid-column:2;justify-self:start}}
 
@@ -941,22 +942,7 @@ a.logo:hover{border-color:var(--ink)}
     <div class="sec-h rv"><h2 id="h-t"><span class="zh">選一種劑量</span><span class="en">Tickets</span></h2>
       <p><span class="zh"><span class="k">全日票已售完。</span><span class="k">還買得到的只剩 Night Dose 夜間劑量。</span></span><span class="en">The full-day ticket is sold out. Night Dose is the only ticket left.</span></p>
     </div>
-    <div class="rx rv" id="buy">
-      <div class="rcpt" aria-label="What NT$1,299 includes">
-        <div class="hd"><b><span class="zh">常態補充劑 · 全日票</span><span class="en">Tablet · full day</span></b><span class="left"><span class="zh">已售完</span><span class="en">Sold out</span></span></div>
-        <ol>
-          <li><span class="t">15:00</span><span class="w"><span class="zh">對談（兩場擇一）</span><span class="en">One panel, your choice</span><span><span class="zh">中文：職涯焦慮，AI 之後 · 英文：在台外國人與男性的心理健康</span><span class="en">Mandarin: career anxiety after AI · English: life abroad and men's mental health</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
-          <li><span class="t">16:00</span><span class="w"><span class="zh">交流</span><span class="en">Break</span><span><span class="zh">飲品、點心，認識同一場的人</span><span class="en">Drinks, snacks, meet the people from your panel</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
-          <li><span class="t">16:30</span><span class="w"><span class="zh">藝術治療 或 睡眠療癒</span><span class="en">Art therapy or sleep ritual</span><span><span class="zh">英國註冊藝術心理治療師帶你用畫筆和黏土做一次；或跟 Becky 把臥室變回能休息的地方</span><span class="en">Paint and clay with a UK-registered art psychotherapist, or Becky's bedroom ritual</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
-          <li><span class="t">17:30</span><span class="w"><span class="zh">身體療癒 Body Pages</span><span class="en">Body Pages</span><span><span class="zh">Tracy 帶的身體掃描、直覺繪畫、分享</span><span class="en">Tracy's body scan, intuitive drawing and sharing</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
-          <li class="nd-row"><span class="t">18:30</span><span class="w"><span class="zh">Night Dose 音樂場</span><span class="en">Night Dose</span><span><span class="zh">DJ、小提琴、鋼琴、笛子的即興</span><span class="en">DJ, violin, piano and flute improvising</span></span></span><span class="ok"><span class="zh">已包含</span><span class="en">Included</span></span></li>
-        </ol>
-<form class="vc" id="vc" autocomplete="off" style="display:none"><label for="vcin"><span class="zh">優惠碼</span><span class="en">Voucher</span></label><input id="vcin" name="code" type="text" maxlength="32" spellcheck="false" autocapitalize="characters"><button type="submit" class="btn ink sm"><span class="zh">套用</span><span class="en">Apply</span></button><span class="msg" id="vcmsg" role="status" aria-live="polite"></span></form>
-        <div class="tot"><span class="tlab"><span class="zh">常態補充劑</span><span class="en">Tablet</span><small id="vcnote"></small></span><b id="rprice"><span>NT$</span>1,299</b></div>
-        <a class="btn rbuy sold" id="buybtn" aria-disabled="true" tabindex="-1"><span class="zh">全日票已售完</span><span class="en">Full day · sold out</span></a>
-        <p class="pays" style="display:none"><span class="zh">付款方式</span><span class="en">Pay with</span> <span class="pm"><i class="ic lp"></i>LINE Pay</span><span class="pm"><i class="ic ap"></i>Apple Pay</span><span class="pm"><i class="ic cc"></i><span class="zh">信用卡</span><span class="en">Card</span></span></p>
-
-      </div>
+    <div class="rx rv solo" id="buy">
       <div class="why">
         <div class="ndt" id="buy-night">
           <span class="fx orb"></span>
